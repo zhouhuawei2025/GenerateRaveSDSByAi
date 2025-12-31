@@ -1,0 +1,660 @@
+﻿using GenerateRaveSDSByAi.dataModel;
+using Microsoft.Extensions.AI;
+using OpenAI;
+using System.IO;
+using System.ClientModel;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xceed.Document.NET;
+
+namespace GenerateRaveSDSByAi.utils;
+
+internal class CRFAnalyzeUtils
+{
+    public static Form? GetForm(Table table)
+    {
+        Form form = null;
+        string formOIDandName = TextExtractor.GetCellValue(table, 0, 0);
+        string type = TextExtractor.GetCellValue(table, 0, 1);
+        if (TextExtractor.ExtractNameAndOid(formOIDandName, out string formName, out string formOID))
+            form = new Form() { Name = formName, OID = formOID, IsLab = type.IndexOf("LAB") >= 0 ? true : false };
+        return form;
+    }
+    public static List<string> GetDataDictionary(Table table)
+    {
+        string crfType = table.Rows[0].Cells[1].Paragraphs[0].Text.Trim();
+        List<string> layoutList = new();
+
+        //可添加行表单 保持三列式
+        if (crfType == "ADD1")
+        {
+            for (int i = 1; i < table.Rows.Count; i++)
+            {
+                string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);
+                if (dpOIDandName.IndexOf("SPID") >= 0 || dpOIDandName.IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0 || dpOIDandName.IndexOf("add page", StringComparison.OrdinalIgnoreCase) >= 0)
+                    continue;
+                if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
+                {
+                    int cell = table.Rows[i].Cells.Count - 1;
+                    string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
+                    if (dpLayout.IndexOf("1=") >= 0 || dpLayout.IndexOf("1 =") >= 0)
+                    {
+                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：{dpLayout}");
+                        File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
+                    }
+                }
+            }
+        }
+
+        //可添加行表单，多列式
+        else if (crfType == "ADD2")
+        {
+            bool loglineFlag = false;
+            int num = 0;
+
+            for (int i = 1; i < table.Rows.Count; i++)
+            {
+                int cellNumber = table.Rows[i].Cells.Count;
+                if (cellNumber > 3 || TextExtractor.GetCellValue(table, i, 0).IndexOf("SPID") >= 0)
+                    loglineFlag = true;
+
+                if (TextExtractor.GetCellValue(table, i, 0).IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    loglineFlag = false;
+                    continue;
+                }
+
+                if (!loglineFlag)  // 处理普通字段
+                {
+                    string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);
+                    if (dpOIDandName.IndexOf("add page", StringComparison.OrdinalIgnoreCase) >= 0)
+                        continue;
+
+                    if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
+                    {
+                        int cell = table.Rows[i].Cells.Count - 1;
+                        string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
+                        if (dpLayout.IndexOf("1=") >= 0 || dpLayout.IndexOf("1 =") >= 0)
+                        {
+                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：{dpLayout}");
+                            File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
+                        }
+                    }
+                }
+
+                else if (num == 0)  //处理logline字段
+                {
+                    for (int j = 1; j < cellNumber; j++)
+                    {
+                        string dpOIDandName = TextExtractor.GetCellValue(table, i, j);
+                        if (TextExtractor.ExtractNameOidLayout(dpOIDandName, out string dpName, out string dpOID, out string dpLayout) && (dpLayout.IndexOf("1=") >= 0 || dpLayout.IndexOf("1 =") >= 0))
+                        {
+                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：{dpLayout}");
+                            File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
+                        }
+                        else
+                        {
+                            Debug.WriteLine("没有查到codelist");
+                        }
+                    }
+                    num++;
+                }
+            }
+        }
+
+        //固定行表单 保持三列式
+        else if (crfType == "FIX1")
+        {
+            for (int i = 1; i < table.Rows.Count; i++)
+            {
+                string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);
+                if (dpOIDandName.IndexOf("SPID") >= 0 || dpOIDandName.IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0 || dpOIDandName.IndexOf("add page", StringComparison.OrdinalIgnoreCase) >= 0)
+                    continue;
+                if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
+                {
+                    int cell = table.Rows[i].Cells.Count - 1;
+                    string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
+                    if (dpLayout.IndexOf("1=") >= 0 || dpLayout.IndexOf("1 =") >= 0)
+                    {
+                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：{dpLayout}");
+                        File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
+                    }
+                }
+            }
+        }
+
+        //固定行表单 保持多列式
+        else if (crfType == "FIX2")
+        {
+            bool loglineFlag = false;
+            int num = 0;
+
+            for (int i = 1; i < table.Rows.Count; i++)
+            {
+                string colorName = table.Rows[i].Cells[0].ShadingPattern.Fill.Name;
+
+                if (table.Rows[i].Cells.Count > 3 || (colorName != "0" && colorName != "ffffffff" && colorName != "00ffffff" && colorName != "00000000"))
+                {
+                    loglineFlag = true;
+                }
+                if (TextExtractor.GetCellValue(table, i, 0).IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    loglineFlag = false;
+                    continue;
+                }
+
+                if (!loglineFlag)  // 处理普通字段
+                {
+                    string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);
+                    if (dpOIDandName.IndexOf("add page", StringComparison.OrdinalIgnoreCase) >= 0)
+                        continue;
+
+                    if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
+                    {
+                        int cell = table.Rows[i].Cells.Count - 1;
+                        string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
+                        if (dpLayout.IndexOf("1=") >= 0 || dpLayout.IndexOf("1 =") >= 0)
+                        {
+                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：{dpLayout}");
+                            File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
+                        }
+                    }
+                }
+                else if (num == 0) //检查logline字段, 且确保只检查logline的第一行
+                {
+                    for (int j = 0; j < table.Rows[i].Cells.Count; j++) //注意：需从第一个单元格开始解析,直到第n个单元格
+                    {
+                        string dp = TextExtractor.GetCellValue(table, i, j);
+                        if (dp.IndexOf("SPID", StringComparison.OrdinalIgnoreCase) >= 0)
+                            continue;
+                        if (TextExtractor.ExtractNameOidLayout(dp, out string dpName, out string dpOID, out string dpLayout) && (dpLayout.IndexOf("1=") >= 0 || dpLayout.IndexOf("1 =") >= 0))
+                        {
+                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：{dpLayout}");
+                            File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
+                        }
+                    }
+                    num++;
+                }
+            }
+        }
+
+        //LAB表单 
+        else if (crfType == "LAB1")
+        {
+            bool loglineFlag = false;
+
+            for (int i = 1; i < table.Rows.Count; i++)
+            {
+                if (table.Rows[i].Cells.Count > 3)
+                {
+                    loglineFlag = true;
+                }
+                if (TextExtractor.GetCellValue(table, i, 0).IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    loglineFlag = false;
+                    continue;
+                }
+
+                if (!loglineFlag)  // 处理普通字段
+                {
+                    string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);
+                    if (dpOIDandName.IndexOf("add page", StringComparison.OrdinalIgnoreCase) >= 0)
+                        continue;
+
+                    if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
+                    {
+                        int cell = table.Rows[i].Cells.Count - 1;
+                        string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
+
+                        if (dpLayout.IndexOf("1=") >= 0 || dpLayout.IndexOf("1 =") >= 0)
+                        {
+                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：{dpLayout}");
+                            File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
+                        }
+                    }
+                }
+            }
+        }
+
+        //普通表单 + 再明格式的Lab表单
+        else
+        {
+            for (int i = 1; i < table.Rows.Count; i++)
+            {
+                string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);
+
+                if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
+                {
+                    int cell = table.Rows[i].Cells.Count - 1;
+                    string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
+                    // string dpLayout = string.Join("\n", table.Rows[i].Cells[m].Paragraphs.Select(e => e.Text));
+                    if (dpLayout.IndexOf("1=") >= 0 || dpLayout.IndexOf("1 =") >= 0)
+                    {
+                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：{dpLayout}");
+                        File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
+                    }
+                }
+
+            }
+        }
+
+        return layoutList;
+    }
+
+    public static List<string> GetFieldInNormalForm(Table table, string formOID)
+    {
+        List<string> fieldList = new List<string>();
+        int rowNo = 1;
+        int ordinal = 0;
+        for (int i = 1; i < table.Rows.Count; i++)
+        {
+            string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);
+            if (dpOIDandName.IndexOf("SPID") >= 0 || dpOIDandName.IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0 || dpOIDandName.IndexOf("add page", StringComparison.OrdinalIgnoreCase) >= 0)
+                continue;
+
+            if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
+            {
+                int cell = table.Rows[i].Cells.Count - 1;
+                string dpLayout = string.Join("\n", table.Rows[i].Cells[cell].Paragraphs.Select(e => e.Text));
+                if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    string value = TextExtractor.GetCellValue(table, i, 1);
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} RowNo：{rowNo}  Ordinal：{ordinal}  字段详情：{dpLayout}, 默认值：{value}");
+                }
+                else
+                {
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} RowNo：{rowNo}  Ordinal：{ordinal}  字段详情：{dpLayout}");
+
+                }
+
+                File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
+                rowNo++;
+                ordinal++;
+            }
+        }
+        return fieldList;
+    }
+
+    public static List<string> GetFieldInADD1Form(Table table, string formOID)
+    {
+        List<string> fieldList = new List<string>();
+        int rowNo = 0;
+        int ordinal = -1;
+        bool loglineFlag = false;
+        bool startflag = true;
+        for (int i = 1; i < table.Rows.Count; i++)
+        {
+            string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);
+            if (dpOIDandName.IndexOf("SPID") >= 0)
+            {
+                loglineFlag = true;
+                continue;
+            }
+            if (dpOIDandName.IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                loglineFlag = false;
+                continue;
+            }
+            if (dpOIDandName.IndexOf("add page", StringComparison.OrdinalIgnoreCase) >= 0)
+                continue;
+
+            //rowNo赋值规则
+            if (!loglineFlag) rowNo++;
+            else if (loglineFlag && startflag) { rowNo++; startflag = false; }
+            //ordinal赋值规则
+            ordinal++;
+
+            if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
+            {
+                int cell = table.Rows[i].Cells.Count - 1;
+                string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
+                if (loglineFlag)
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：true,  字段详情：{dpLayout}");
+
+                else if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0) //只对普通字段做default value的读取
+                {
+                    string value = TextExtractor.GetCellValue(table, i, 1);
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：false, 字段详情：{dpLayout}, 默认值：{value}");
+                }
+
+                else
+                {
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：false, 字段详情：{dpLayout}");
+
+                }
+
+                //fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：false,  字段详情：{dpLayout}");
+
+
+                File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
+            }
+
+        }
+        return fieldList;
+    }
+
+    public static List<string> GetFieldInADD2Form(Table table, string formOID)
+    {
+        List<string> fieldList = new List<string>();
+        int rowNo = 0;
+        int ordinal = -1;
+        bool loglineFlag = false;
+        int num = 0;
+
+        for (int i = 1; i < table.Rows.Count; i++)
+        {
+            int cellNumber = table.Rows[i].Cells.Count;
+            if (cellNumber > 3 || TextExtractor.GetCellValue(table, i, 0).IndexOf("SPID") >= 0) loglineFlag = true;
+
+            if (TextExtractor.GetCellValue(table, i, 0).IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0) { loglineFlag = false; continue; }
+
+
+            if (!loglineFlag)  // 处理普通字段
+            {
+                string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);
+                if (dpOIDandName.IndexOf("add page", StringComparison.OrdinalIgnoreCase) >= 0)
+                    continue;
+
+                if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
+                {
+                    rowNo++;
+                    ordinal++;
+                    int cell = table.Rows[i].Cells.Count - 1;
+                    string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
+                    if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        string value = TextExtractor.GetCellValue(table, i, 1);
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：false, 字段详情：{dpLayout}, 默认值：{value}");
+                    }
+
+                    else
+                    {
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：false, 字段详情：{dpLayout}");
+                    }
+
+                    //  fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：false,  字段详情：{dpLayout}");
+                    File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
+                }
+            }
+
+            else if (num == 0)  //处理logline字段
+            {
+                for (int j = 1; j < cellNumber; j++)
+                {
+                    if (j == 1) rowNo++;
+
+                    string dpOIDandName = TextExtractor.GetCellValue(table, i, j);
+                    if (TextExtractor.ExtractNameOidLayout(dpOIDandName, out string dpName, out string dpOID, out string dpLayout))
+                    {
+                        ordinal++;
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：true,  字段详情：{dpLayout}");
+                        File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
+                    }
+                }
+                num++;
+            }
+
+        }
+
+        return fieldList;
+    }
+
+    public static List<string> GetFieldInFIX1Form(Table table, string formOID)
+    {
+        List<string> fieldList = new List<string>();
+        int rowNo = 0;
+        int ordinal = -1;
+        bool loglineFlag = false;
+        bool startflag = true;
+        for (int i = 1; i < table.Rows.Count; i++)
+        {
+            string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);
+            if (dpOIDandName.IndexOf("SPID") >= 0) { loglineFlag = true; continue; }
+            if (dpOIDandName.IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0) { loglineFlag = false; continue; }
+            if (dpOIDandName.IndexOf("add page", StringComparison.OrdinalIgnoreCase) >= 0) continue;
+
+            //rowNo赋值规则
+            if (!loglineFlag) rowNo++;
+            else if (loglineFlag && startflag) { rowNo++; startflag = false; }
+            //ordinal赋值规则
+            ordinal++;
+
+            if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
+            {
+                int cell = table.Rows[i].Cells.Count - 1;
+                string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
+                if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：true， 行标识词典： {dpOID}   字段详情：Text [$200]");
+                else if (loglineFlag)
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：true,  字段详情：{dpLayout}");
+                else
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：false,  字段详情：{dpLayout}");
+
+                File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
+            }
+        }
+        return fieldList;
+    }
+
+    public static List<string> GetFieldInFIX2Form(Table table, string formOID)
+    {
+        List<string> fieldList = new List<string>();
+        int rowNo = 0;
+        int ordinal = -1;
+        bool loglineFlag = false;
+        int num = 0;
+
+        for (int i = 1; i < table.Rows.Count; i++)
+        {
+            string colorName = table.Rows[i].Cells[0].ShadingPattern.Fill.Name;
+            int cellNumber = table.Rows[i].Cells.Count;
+
+            if (cellNumber > 3 || (colorName != "0" && colorName != "ffffffff" && colorName != "00ffffff" && colorName != "00000000"))
+                loglineFlag = true;
+
+            if (TextExtractor.GetCellValue(table, i, 0).IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                loglineFlag = false;
+                continue;
+            }
+
+            if (!loglineFlag)  // 处理普通字段
+            {
+                string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);
+                if (dpOIDandName.IndexOf("add page", StringComparison.OrdinalIgnoreCase) >= 0) continue;
+
+                if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
+                {
+                    rowNo++;
+                    ordinal++;
+                    int cell = table.Rows[i].Cells.Count - 1;
+                    string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
+                    if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        string value = TextExtractor.GetCellValue(table, i, 1);
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：false, 字段详情：{dpLayout}, 默认值：{value}");
+                    }
+
+                    else
+                    {
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：false, 字段详情：{dpLayout}");
+
+                    }
+                    //  fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：false  字段详情：{dpLayout}");
+                    File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
+                }
+            }
+            else if (num == 0)  //处理logline字段
+            {
+                for (int j = 0; j < cellNumber; j++)
+                {
+                    if (j == 0) rowNo++;
+
+                    string dp = TextExtractor.GetCellValue(table, i, j);
+                    if (dp.IndexOf("SPID") >= 0) continue;
+
+                    if (TextExtractor.ExtractNameOidLayout(dp, out string dpName, out string dpOID, out string dpLayout))
+                    {
+                        ordinal++;
+                        if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)  // 固定行标识字段
+                            fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：true， 行标识词典： {dpOID}   字段详情：Text [$200]");
+                        else
+                            fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsGrid：true  字段详情：{dpLayout}");
+
+
+                        File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
+                    }
+                }
+                num++;
+            }
+        }
+
+        return fieldList;
+    }
+
+    public static List<string> GetFieldInLAB1Form(Table table, string formOID)
+    {
+        List<string> fieldList = new List<string>();
+        int rowNo = 0;
+        int ordinal = -1;
+        bool loglineFlag = false;
+        int num = 0;
+
+        for (int i = 1; i < table.Rows.Count; i++)
+        {
+            int cellNumber = table.Rows[i].Cells.Count;
+            if (cellNumber > 3 || TextExtractor.GetCellValue(table, i, 0).IndexOf("SPID") >= 0) loglineFlag = true;
+
+            if (TextExtractor.GetCellValue(table, i, 0).IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0) { loglineFlag = false; continue; }
+
+
+            if (!loglineFlag)  // 处理普通字段
+            {
+                string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);
+                if (dpOIDandName.IndexOf("add page", StringComparison.OrdinalIgnoreCase) >= 0)
+                    continue;
+
+                if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
+                {
+                    rowNo++;
+                    ordinal++;
+                    int cell = table.Rows[i].Cells.Count - 1;
+                    string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
+                    if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        string value = TextExtractor.GetCellValue(table, i, 1);
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsLab：false, 字段详情：{dpLayout}, 默认值：{value}");
+                    }
+
+                    else
+                    {
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsLab：false, 字段详情：{dpLayout}");
+                    }
+
+                    // fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} RowNo：{rowNo}  Ordinal：{ordinal}  IsLab = false,  字段详情：{dpLayout}");
+                    File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
+                }
+            }
+
+            else if (num == 0)
+            {
+                num++;
+            }
+            else //处理lab字段
+            {
+                string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);
+
+                if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
+                {
+                    rowNo++;
+                    ordinal++;
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} RowNo：{rowNo}  Ordinal：{ordinal}  IsLab = true, 字段详情：Text [$20]");
+                    File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
+                }
+            }
+
+        }
+
+        return fieldList;
+    }
+
+    public static List<string> GetFieldInLAB2Form(Table table, string formOID)
+    {
+        List<string> fieldList = new List<string>();
+        int rowNo = 1;
+        int ordinal = 0;
+        for (int i = 1; i < table.Rows.Count; i++)
+        {
+            string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);
+            if (dpOIDandName.IndexOf("SPID") >= 0 || dpOIDandName.IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0 || dpOIDandName.IndexOf("add page", StringComparison.OrdinalIgnoreCase) >= 0)
+                continue;
+
+            if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
+            {
+                int cell = table.Rows[i].Cells.Count - 1;
+                string dpLayout = string.Join("\n", table.Rows[i].Cells[cell].Paragraphs.Select(e => e.Text));
+
+                if (dpLayout.IndexOf("LAB", StringComparison.OrdinalIgnoreCase) >= 0)
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} RowNo：{rowNo}  Ordinal：{ordinal}  IsLab = true, 字段详情：{dpLayout}");
+
+                else if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    string value = TextExtractor.GetCellValue(table, i, 1);
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsLab：false, 字段详情：{dpLayout}, 默认值：{value}");
+                }
+
+                else
+                {
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsLab：false, 字段详情：{dpLayout}");
+                }
+
+                //  fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} RowNo：{rowNo}  Ordinal：{ordinal}  字段详情：{dpLayout}");
+
+                File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
+                rowNo++;
+                ordinal++;
+            }
+        }
+        return fieldList;
+    }
+
+
+    public static async Task<string> UsingAiTransferListToJson(string instructions, List<string> list, AIconfig aiconfig, string path)
+    {
+        OpenAIClientOptions openAIClientOptions = new OpenAIClientOptions();
+        openAIClientOptions.Endpoint = new Uri(aiconfig.Url);
+        IChatClient client = new OpenAI.Chat.ChatClient(aiconfig.Model, new ApiKeyCredential(aiconfig.ApiKey), openAIClientOptions)
+                    .AsIChatClient();
+
+        List<ChatMessage> chatFieldMessages = new List<ChatMessage>();
+        chatFieldMessages.Add(new ChatMessage(ChatRole.User, instructions));
+        chatFieldMessages.Add(new ChatMessage(ChatRole.User, String.Join("\n", list)));
+        try
+        {
+            //发送请求并获取响应
+            await Task.Delay(10000);
+            var response = await client.GetResponseAsync(chatFieldMessages);
+
+            string fieldResult = response.Text;
+            File.AppendAllText(path, $"====================AI提取的json如下：" + "\r\n");
+            File.AppendAllText(path, fieldResult + "\r\n");
+            File.AppendAllText(path, $"本次聊天消耗的Token数：{response.Usage.TotalTokenCount}" + "\r\n");
+            File.AppendAllText(path, $"其中输入消耗的Token数：{response.Usage.InputTokenCount}" + "\r\n");
+            File.AppendAllText(path, $"输出消耗的Token数：{response.Usage.OutputTokenCount}" + "\r\n");
+            return fieldResult;
+        }
+        catch (Exception ex)
+        {
+            // 捕获具体异常并写入日志，返回包含异常详情的字符串
+            string errorMsg = $"AI解析时发生异常：{ex.Message}（类型：{ex.GetType().Name}）";
+            File.AppendAllText(path, $"===================={errorMsg} {DateTime.Now:yyyy-MM-dd HH:mm:ss}\r\n");
+            File.AppendAllText(path, $"异常详情：{ex.StackTrace}\r\n");
+            return errorMsg;
+        }
+
+
+    }
+}

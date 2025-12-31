@@ -1,0 +1,5 @@
+﻿{
+  "Url": "http://192.168.8.58:30008/v1",
+  "Model": "openai/gpt-oss-120b",
+  "ApiKey": "your-api-key"
+}
