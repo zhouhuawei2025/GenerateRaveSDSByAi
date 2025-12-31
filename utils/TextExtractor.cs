@@ -71,7 +71,8 @@ public class TextExtractor
             return false;
 
         //string pattern = @"^[^()（）]*[\(（]([A-Z0-9_]+)[\)）][^()（）]*$";
-        string pattern = @"^([^()（）]+)[\(（]([A-Z0-9_]+)[\)）]([^()（）]*)$";
+        //string pattern = @"^([^()（）]+)[\(（]([A-Z0-9_]+)[\)）]([^()（）]*)$";  //易迪希目前用的是这种
+        string pattern = @"^([^()]+)\(([A-Z0-9_]+)\)(.*)$";
         Regex regex = new Regex(pattern, RegexOptions.None);
         Match match = regex.Match(inputText);
 
@@ -110,32 +111,6 @@ public class TextExtractor
     public static string GetCellValueLayOutPart(Table table, int row, int cell)
     {
         return string.Join("\n", table.Rows[row].Cells[cell].Paragraphs.Select(e => e.Text)).Trim();
-    }
-
-    /// <summary>
-    /// 获取logline字段的Name和OID
-    /// </summary>
-    /// <param name="table"></param>
-    /// <param name="row"></param>
-    /// <param name="cell"></param>
-    /// <param name="previousParagraphs"></param>
-    /// <returns></returns>
-    public static string GetCellValue(Table table, int row, int cell, int previousParagraphs)
-    {
-        return string.Join("", table.Rows[row].Cells[cell].Paragraphs.Take(previousParagraphs).Select(e => e.Text.Trim())).Trim();
-    }
-
-    /// <summary>
-    /// 获取logline字段的LayOut
-    /// </summary>
-    /// <param name="table"></param>
-    /// <param name="row"></param>
-    /// <param name="cell"></param>
-    /// <param name="previousParagraphs"></param>
-    /// <returns></returns>
-    public static string GetCellValueLayOutPart(Table table, int row, int cell, int previousParagraphs)
-    {
-        return string.Join("\n", table.Rows[row].Cells[cell].Paragraphs.Skip(previousParagraphs).Select(e => e.Text.Trim())).Trim();
     }
 
 }

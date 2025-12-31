@@ -9,7 +9,7 @@ public class FormatCheckUtils
     //在将CRF转成SDS文件之前，对CRF的结构进行检查
     public static string CheckCrfFormat(Table table)
     {
-        StringBuilder sb = new StringBuilder();    //记录解析错误的行，返回给用户修改  
+        StringBuilder sb = new StringBuilder();    //记录解析错误的行，返回给用户修改
         string crfType = table.Rows[0].Cells[1].Paragraphs[0].Text.Trim();
 
         //可添加行表单 保持三列式
@@ -126,9 +126,8 @@ public class FormatCheckUtils
                     int cell = table.Rows[i].Cells.Count - 1;
                     string dpLayout = TextExtractor.GetCellValue(table, i, cell);
                     Debug.WriteLine($"顺利解析字段：{dpOIDandName}，字段类型和格式：{dpLayout}");
-                    if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
+                    if (dpLayout.ToLower().Contains("default") && dpLayout.ToLower().Contains("dropdown"))
                         defaultValueFlag = true;
-
                 }
                 else
                 {
@@ -188,7 +187,7 @@ public class FormatCheckUtils
 
                         if (TextExtractor.ExtractNameOidLayout(dpOIDandName, out string name, out string oid, out string dpLayout))
                         {
-                            if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
+                            if (dpLayout.ToLower().Contains("default"))
                                 defaultValueFlag = true;
                         }
                         else
@@ -246,7 +245,7 @@ public class FormatCheckUtils
             }
 
             if (!spidFlag)
-                sb.AppendLine($"错误：缺少【LBTEST - LBDYLK】行，请及时更正");
+                sb.AppendLine($"错误：缺少【LBTEST - LBCOM】行，请及时更正");
 
             if (loglineFlag)
                 sb.AppendLine($"错误：缺少【[Add Row]】行，请及时更正");
