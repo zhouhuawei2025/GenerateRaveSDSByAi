@@ -12,17 +12,16 @@ class DataDictionary
     public int EntryOID { get; set; }
     public string ItemDataString { get; set; }
     public bool IsSpecify { get; set; } = false;
-    public string SpecifyLength { get; set; } = "";
-
+   
 }
 
-##举例(注意事项：如果字典的某个选项后存在类似于Long Text [$100]的描述，说明该选项的IsSpecify = true, SpecifyLength则等于对应的文本格式长度，如100)：
+##举例(注意事项：如果字典的某个选项后存在类似于Long Text [$100]的描述，说明该选项的IsSpecify = true)：
 字段OID： SVOCCUR, 字段类型和格式：RadioButton [1]
 code list
 1=是
 2=否
 字段OID： LBPERF, 字段类型和格式：[1] RadioButton
-1= Yes  2= No  99=Other, please specify
+1= 0. 1分  2= 1. 2分  99=Other, please specify
 Long Text [$5]
 字段OID：REVERS, 字段类型和格式：RadioButton [2] 
 Code list: 
@@ -47,13 +46,13 @@ Long Text [$200]
     "OID": "LBPERF", "Name": "LBPERF",
     "DataDictionaryEntries": [
       {
-        "EntryOID": 1, "ItemDataString": "Yes"
+        "EntryOID": 1, "ItemDataString": "0. 1分"
       },
       {
-        "EntryOID": 2, "ItemDataString": "No"
+        "EntryOID": 2, "ItemDataString": "1. 2分"
       },
       {
-        "EntryOID": 99, "ItemDataString": "Other,pleasespecify", "IsSpecify": true, "SpecifyLength": "5"
+        "EntryOID": 99, "ItemDataString": "Other,pleasespecify", "IsSpecify": true
       }
     ]
   },
@@ -64,7 +63,7 @@ Long Text [$200]
         "EntryOID": 1, "ItemDataString": "1.1"
       },
       {
-        "EntryOID": 99, "ItemDataString": "其他，请详述", "IsSpecify": true, "SpecifyLength": "200"
+        "EntryOID": 99, "ItemDataString": "其他，请详述", "IsSpecify": true
       }
     ]
   }
