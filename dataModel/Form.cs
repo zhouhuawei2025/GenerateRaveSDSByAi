@@ -8,8 +8,8 @@ namespace GenerateRaveSDSByAi.dataModel;
 
 public class Form
 {
-    public string? Name { get; set; }
     public string? OID { get; set; }
-    public bool IsLab { get; set; }
+    public string? Name { get; set; }
+    public string LogDirection { get; set; } = "";
     public bool IsActive { get; set; } = true;
 }

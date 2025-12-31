@@ -8,5 +8,10 @@ namespace GenerateRaveSDSByAi.dataModel
 {
     internal class DataDictionaryEntry
     {
+        public int EntryOID { get; set; }
+
+        public string ItemDataString { get; set; }
+
+        public bool IsSpecify { get; set; } = false;
     }
 }
