@@ -14,6 +14,7 @@ public partial class App : Application
     /// 全局AI配置（internal类仅程序集内可访问，符合你的定义）
     /// </summary>
     internal static AIconfig GlobalAIConfig { get; private set; }
+    internal static List<string> Analytes {  get; private set; }
 
     /// <summary>
     /// 程序启动事件（主窗口显示前执行）
@@ -33,6 +34,7 @@ public partial class App : Application
                 GlobalAIConfig.ApiKey = keyFromEnv;
             }
 
+            Analytes = ConfigHelper.LoadAnalytesConfig();
         }
         catch (Exception ex)
         {

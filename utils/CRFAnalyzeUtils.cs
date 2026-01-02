@@ -616,7 +616,7 @@ internal class CRFAnalyzeUtils
     public static List<string> GetFieldInLAB1Form(Table table, string formOID)
     {
         List<string> fieldList = new List<string>();       
-        int ordinal = 0;
+        int ordinal = 1;
         bool loglineFlag = false;
         int num = 0;
 
@@ -677,7 +677,7 @@ internal class CRFAnalyzeUtils
     public static List<string> GetFieldInLAB2Form(Table table, string formOID)
     {
         List<string> fieldList = new List<string>();        
-        int ordinal = 0;
+        int ordinal = 1;
         for (int i = 1; i < table.Rows.Count; i++)
         {
             string dpOIDandName = TextExtractor.GetCellValue(table, i, 0);

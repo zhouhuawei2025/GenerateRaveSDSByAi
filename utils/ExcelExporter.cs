@@ -116,42 +116,6 @@ namespace GenerateRaveSDSByAi.utils
             }
         }
 
-
-
-        //public static void ExportAnalyteToExcel(List<List<Field>> fieldList, string outputPath)
-        //{
-        //    using (var package = new ExcelPackage())
-        //    {
-        //        var sheet1 = package.Workbook.Worksheets.Add("LabKey");
-        //        // 设置表头
-        //        string[] sheet1Headers = new string[] { "LabKey", "KeyDescription", "StandardUnit" };
-
-        //        for (int col = 0; col < sheet1Headers.Length; col++)
-        //        {
-        //            sheet1.Cells[1, col + 1].Value = sheet1Headers[col];
-        //            sheet1.Cells[1, col + 1].Style.Font.Bold = true; // 表头加粗
-        //        }
-
-        //        // 填充数据
-        //        int sheet1Row = 2;
-        //        var fields = from u in fieldList
-        //                     from v in u.Where(g => g.IsLab == true)
-        //                     select v;
-
-        //        foreach (var field in fields)
-        //        {
-        //            sheet1.Cells[sheet1Row, 1].Value = field.FieldOID;
-        //            sheet1.Cells[sheet1Row, 2].Value = field.FieldName;
-        //            sheet1Row++;
-        //        }
-        //        sheet1.Cells.AutoFitColumns(); // 自动调整列宽
-
-        //        // 保存Excel文件
-        //        FileInfo file = new FileInfo(outputPath);
-        //        package.SaveAs(file);
-        //        Debug.WriteLine($"Excel导出成功！路径：{outputPath}");
-        //    }
-        //}
         public static void ExportFieldToExcel(List<List<Field>> fieldList, string outputPath)
         {
             using (var package = new ExcelPackage())
@@ -213,7 +177,7 @@ namespace GenerateRaveSDSByAi.utils
                     sheet1.Cells[sheet1Row, 26].Value = field.QueryFutureDate ? "TRUE" : "FALSE"; ;
                     sheet1.Cells[sheet1Row, 27].Value = field.IsVisible ? "TRUE" : "FALSE";
                     sheet1.Cells[sheet1Row, 28].Value = "FALSE";
-                    sheet1.Cells[sheet1Row, 29].Value = "";  //待定
+                    sheet1.Cells[sheet1Row, 29].Value = field.AnalyteName;
                     sheet1.Cells[sheet1Row, 30].Value = field.IsLab ? "TRUE" : "FALSE";
                     sheet1.Cells[sheet1Row, 31].Value = field.QueryNonConformance ? "TRUE" : "FALSE";
                     sheet1.Cells[sheet1Row, 32].Value = "FALSE";

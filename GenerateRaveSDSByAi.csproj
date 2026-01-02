@@ -6,14 +6,20 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>house_107370.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="向下-圆圈箭头.png" />
     <None Remove="提示词\ADD类型表单的field解析.txt" />
     <None Remove="提示词\FIX类型表单的field解析.txt" />
     <None Remove="提示词\LAB类型表单的field解析.txt" />
     <None Remove="提示词\普通表单的field解析.txt" />
     <None Remove="数译_下移-箭头.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="house_107370.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +34,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="向下-圆圈箭头.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="提示词\ADD类型表单的field解析.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -50,6 +59,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="配置\aiConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="配置\analytes.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
