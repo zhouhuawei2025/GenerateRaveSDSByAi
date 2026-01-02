@@ -3,11 +3,7 @@ using Microsoft.Extensions.AI;
 using OpenAI;
 using System.IO;
 using System.ClientModel;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xceed.Document.NET;
 
 namespace GenerateRaveSDSByAi.utils;
@@ -48,7 +44,7 @@ internal class CRFAnalyzeUtils
                     else if (dpLayout.ToLower().Contains("default"))
                     {
                         string defaultValue = TextExtractor.GetCellValueLayOutPart(table, i, cell - 1);
-                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：1={defaultValue}");
+                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1] 1={defaultValue}");
                         File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
                     }
                 }
@@ -91,7 +87,7 @@ internal class CRFAnalyzeUtils
                         else if (dpLayout.ToLower().Contains("default"))
                         {
                             string defaultValue = TextExtractor.GetCellValueLayOutPart(table, i, cell - 1);
-                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：1={defaultValue}");
+                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1] 1={defaultValue}");
                             File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
                         }
                     }
@@ -137,7 +133,7 @@ internal class CRFAnalyzeUtils
                     else if (dpLayout.ToLower().Contains("default") && !dpLayout.ToLower().Contains("dropdown"))
                     {
                         string defaultValue = TextExtractor.GetCellValueLayOutPart(table, i, cell - 1);
-                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：1={defaultValue}");
+                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1] 1={defaultValue}");
                         File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
                     }
                 }
@@ -154,7 +150,7 @@ internal class CRFAnalyzeUtils
             {
                 string colorName = table.Rows[i].Cells[0].ShadingPattern.Fill.Name;
 
-                if (table.Rows[i].Cells.Count > 3 || (colorName != "0" && colorName != "ffffffff" && colorName != "00ffffff" && colorName != "00000000"))
+                if (table.Rows[i].Cells.Count > 3 || (colorName != "#0" && colorName != "#ffffffff" && colorName != "#00ffffff" && colorName != "#00000000"))
                 {
                     loglineFlag = true;
                 }
@@ -182,7 +178,7 @@ internal class CRFAnalyzeUtils
                         else if (dpLayout.ToLower().Contains("default"))
                         {
                             string defaultValue = TextExtractor.GetCellValueLayOutPart(table, i, cell - 1);
-                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：1={defaultValue}");
+                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1] 1={defaultValue}");
                             File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
                         }
                     }
@@ -217,7 +213,7 @@ internal class CRFAnalyzeUtils
             {
                 string colorName = table.Rows[i].Cells[0].ShadingPattern.Fill.Name;
 
-                if (table.Rows[i].Cells.Count > 3 || (colorName != "0" && colorName != "ffffffff" && colorName != "00ffffff" && colorName != "00000000"))
+                if (table.Rows[i].Cells.Count > 3 || (colorName != "#0" && colorName != "#ffffffff" && colorName != "#00ffffff" && colorName != "#00000000"))
                     startRow = (startRow == 0 ? i : startRow);
 
                 if (TextExtractor.GetCellValue(table, i, 0).IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0)
@@ -297,7 +293,7 @@ internal class CRFAnalyzeUtils
                         else if (dpLayout.ToLower().Contains("default"))
                         {
                             string defaultValue = TextExtractor.GetCellValueLayOutPart(table, i, cell - 1);
-                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：1={defaultValue}");
+                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1] 1={defaultValue}");
                             File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
                         }
                     }
@@ -324,7 +320,7 @@ internal class CRFAnalyzeUtils
                     else if(dpLayout.ToLower().Contains("default"))
                     {
                         string defaultValue = TextExtractor.GetCellValueLayOutPart(table, i, cell - 1);
-                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：1={defaultValue}");
+                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1] 1={defaultValue}");
                         File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
                     }
                 }
@@ -351,7 +347,7 @@ internal class CRFAnalyzeUtils
                 string dpLayout = string.Join("\n", table.Rows[i].Cells[cell].Paragraphs.Select(e => e.Text));
                 if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
                 {
-                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} Ordinal：{ordinal}  字段详情：{dpLayout}, 默认值：1|");
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} Ordinal：{ordinal}  字段详情：RadioButton[2], 默认值：1|");
                 }
                 else
                 {
@@ -393,15 +389,15 @@ internal class CRFAnalyzeUtils
             {
                 int cell = table.Rows[i].Cells.Count - 1;
                 string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
-                string islog = loglineFlag ? "IsLog：true" : "IsLog：false";
+                string IsGrid = loglineFlag ? "IsGrid：true" : "IsGrid：false";
 
                 if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
                 {
-                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID}  Ordinal：{ordinal}, {islog}, 字段详情：{dpLayout}, 默认值：1|");
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID}  Ordinal：{ordinal}, {IsGrid}, 字段详情：RadioButton[2], 默认值：1|");
                 }
                 else
                 {
-                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID}  Ordinal：{ordinal}, {islog}, 字段详情：{dpLayout}");
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID}  Ordinal：{ordinal}, {IsGrid}, 字段详情：{dpLayout}");
                 }
 
                 File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
@@ -424,7 +420,7 @@ internal class CRFAnalyzeUtils
             if (cellNumber > 3 || TextExtractor.GetCellValue(table, i, 0).IndexOf("SPID") >= 0) loglineFlag = true;
 
             if (TextExtractor.GetCellValue(table, i, 0).IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0) { loglineFlag = false; continue; }
-            string islog = loglineFlag ? "IsLog：true" : "IsLog：false";
+            string IsGrid = loglineFlag ? "IsGrid：true" : "IsGrid：false";
 
 
             if (!loglineFlag)  // 处理普通字段
@@ -440,12 +436,12 @@ internal class CRFAnalyzeUtils
                     string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
                     if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
                     {
-                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal}, {islog}, 字段详情：{dpLayout}, 默认值：1|");
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal}, {IsGrid}, 字段详情：RadioButton[2], 默认值：1|");
                     }
 
                     else
                     {
-                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} Ordinal：{ordinal}, {islog}, 字段详情：{dpLayout}");
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} Ordinal：{ordinal}, {IsGrid}, 字段详情：{dpLayout}");
                     }
 
                     File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
@@ -462,12 +458,12 @@ internal class CRFAnalyzeUtils
                         ordinal++;
                         if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
                         {
-                            fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal}, {islog}, 字段详情：{dpLayout}, 默认值：1|");
+                            fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal}, {IsGrid}, 字段详情：RadioButton[2], 默认值：1|");
                         }
 
                         else
                         {
-                            fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} Ordinal：{ordinal}, {islog}, 字段详情：{dpLayout}");
+                            fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} Ordinal：{ordinal}, {IsGrid}, 字段详情：{dpLayout}");
                         }
                         
                         File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
@@ -495,7 +491,7 @@ internal class CRFAnalyzeUtils
             if (dpOIDandName.IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0) { loglineFlag = false; continue; }
             if (dpOIDandName.IndexOf("add page", StringComparison.OrdinalIgnoreCase) >= 0) continue;
 
-            string islog = loglineFlag ? "IsLog：true" : "IsLog：false";
+            string IsGrid = loglineFlag ? "IsGrid：true" : "IsGrid：false";
 
             //ordinal赋值规则
             ordinal++;
@@ -506,15 +502,15 @@ internal class CRFAnalyzeUtils
                 string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
                 if(dpLayout.ToLower().Contains("dropdown") && dpLayout.ToLower().Contains("default"))
                 {
-                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} Ordinal：{ordinal},  {islog}, 字段详情：{dpLayout}, 默认值：1|2|3|...n| (提取字段词典中每一项的code值，以|分隔) ");
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} Ordinal：{ordinal},  {IsGrid}, 字段详情：{dpLayout}, 默认值：1|2|3|...n| (提取字段词典中每一项的code值，以|分隔) ");
                 }
                 else if(dpLayout.ToLower().Contains("default") && !dpLayout.ToLower().Contains("dropdown"))
                 {
-                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} Ordinal：{ordinal},  {islog}, 字段详情：{dpLayout}, 默认值：1|");
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} Ordinal：{ordinal},  {IsGrid}, 字段详情：RadioButton[2], 默认值：1|");
                 }
                 else
                 {
-                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} Ordinal：{ordinal},  {islog}, 字段详情：{dpLayout}");
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} Ordinal：{ordinal},  {IsGrid}, 字段详情：{dpLayout}");
                 }
 
                 File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
@@ -539,7 +535,7 @@ internal class CRFAnalyzeUtils
         {
             string colorName = table.Rows[i].Cells[0].ShadingPattern.Fill.Name;
 
-            if (table.Rows[i].Cells.Count > 3 || (colorName != "0" && colorName != "ffffffff" && colorName != "00ffffff" && colorName != "00000000"))
+            if (table.Rows[i].Cells.Count > 3 || (colorName != "#0" && colorName != "#ffffffff" && colorName != "#00ffffff" && colorName != "#00000000"))
                 startRow = (startRow == 0 ? i : startRow);
 
             if (TextExtractor.GetCellValue(table, i, 0).IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0)
@@ -555,7 +551,7 @@ internal class CRFAnalyzeUtils
             string colorName = table.Rows[i].Cells[0].ShadingPattern.Fill.Name;
             int cellNumber = table.Rows[i].Cells.Count;
 
-            if (cellNumber > 3 || (colorName != "0" && colorName != "ffffffff" && colorName != "00ffffff" && colorName != "00000000"))
+            if (cellNumber > 3 || (colorName != "#0" && colorName != "#ffffffff" && colorName != "#00ffffff" && colorName != "#00000000"))
                 loglineFlag = true;
 
             if (TextExtractor.GetCellValue(table, i, 0).IndexOf("add row", StringComparison.OrdinalIgnoreCase) >= 0)
@@ -564,7 +560,7 @@ internal class CRFAnalyzeUtils
                 continue;
             }
 
-            string islog = loglineFlag ? "IsLog：true" : "IsLog：false";
+            string IsGrid = loglineFlag ? "IsGrid：true" : "IsGrid：false";
 
             if (!loglineFlag)  // 处理普通字段
             {
@@ -579,12 +575,12 @@ internal class CRFAnalyzeUtils
                     string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
                     if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
                     {
-                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}   Ordinal：{ordinal},  {islog}, 字段详情：{dpLayout}, 默认值：1|");
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}   Ordinal：{ordinal},  {IsGrid}, 字段详情：RadioButton[2], 默认值：1|");
                     }
 
                     else
                     {
-                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}   Ordinal：{ordinal},  {islog}, 字段详情：{dpLayout}");
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}   Ordinal：{ordinal},  {IsGrid}, 字段详情：{dpLayout}");
 
                     }
                    
@@ -602,9 +598,9 @@ internal class CRFAnalyzeUtils
                     {
                         ordinal++;
                         if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)  // 固定行标识字段
-                            fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal},  {islog}, 字段详情：{dpLayout}, 默认值：{defaultValue}");
+                            fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal},  {IsGrid}, 字段详情：DropDownList[2], 默认值：{defaultValue}");
                         else
-                            fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal},  {islog}  字段详情：{dpLayout}");
+                            fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal},  {IsGrid}  字段详情：{dpLayout}");
 
 
                         File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
@@ -645,12 +641,12 @@ internal class CRFAnalyzeUtils
                     string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
                     if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
                     {
-                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsLab：false, 字段详情：{dpLayout}, 默认值：1|");
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal} IsLab：false, 字段详情：RadioButton[2], 默认值：1|");
                     }
 
                     else
                     {
-                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} RowNo：{rowNo}  Ordinal：{ordinal} IsLab：false, 字段详情：{dpLayout}");
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal} IsLab：false, 字段详情：{dpLayout}");
                     }
 
                     File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
@@ -668,7 +664,7 @@ internal class CRFAnalyzeUtils
                 if (TextExtractor.ExtractNameAndOid(dpOIDandName, out string dpName, out string dpOID))
                 {                   
                     ordinal++;
-                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} RowNo：{rowNo}  Ordinal：{ordinal}  IsLab = true, 字段详情：Text [$20]");
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID}  Ordinal：{ordinal}  IsLab = true, 字段详情：Text [8.3]");
                     File.AppendAllText(@"运行日志\fieldlistLog.txt", fieldList[fieldList.Count - 1] + "\r\n");
                 }
             }
@@ -699,7 +695,7 @@ internal class CRFAnalyzeUtils
                 else if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
                 {
                     string value = TextExtractor.GetCellValue(table, i, 1);
-                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal} IsLab：false, 字段详情：{dpLayout}, 默认值：1|");
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal} IsLab：false, 字段详情：RadioButton[2], 默认值：1|");
                 }
 
                 else

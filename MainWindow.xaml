@@ -5,8 +5,131 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GenerateRaveSDSByAi"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="800">
+    <Window.Resources>
+        <!-- 步骤文本样式 -->
+        <Style x:Key="StepText" TargetType="TextBlock">
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="TextAlignment" Value="Left"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Background" Value="LightSteelBlue"/>
+            <Setter Property="Foreground" Value="#263238"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0 0 15 0"/>
+            <Setter Property="Width" Value="220"/>
+        </Style>
+
+        <!-- 日志文本样式 -->
+        <Style x:Key="LogText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="#263238"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+
+        <!-- 按钮样式 -->
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+        </Style>
+
+    </Window.Resources>
     <Grid>
+        <!-- 标题区域 -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <!-- 标题 -->
+        <StackPanel Grid.Row="0">
+            <TextBlock  Text="CRF字段提取工具（Medidata版）" FontSize="24" FontWeight="Bold"  Margin="10"/>
+        </StackPanel>
+        <TabControl Grid.Row="1">
+            <TabItem Header="CRF解析">
+                <!-- 主要内容区域 -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border CornerRadius="3" BorderThickness="2" BorderBrush="CornflowerBlue" Margin="10 26 0 10">
+                        <StackPanel Margin="10">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Step1: CRF格式检查"  Style="{StaticResource StepText}"/>
+                                <Border BorderBrush="SkyBlue" BorderThickness="2" CornerRadius="2">
+                                    <Button x:Name="btnUpload" Width="100" Height="30" Content="上传解析" Click="btnUpload_Click"/>
+                                </Border>
+                            </StackPanel>
+                            <Border x:Name="bd1">
+                                <Image Source="数译_下移-箭头.png" Width="50"/>
+                            </Border>
+                            <StackPanel Orientation="Horizontal" x:Name="sp2">
+                                <TextBlock Text="Step2: 提取Form" Style="{StaticResource StepText}"/>
+                                <Border BorderBrush="SkyBlue" BorderThickness="2" CornerRadius="2">
+                                    <Button x:Name="btnForm" Width="100" Height="30" Content="运行" Click="btnForm_Click"/>
+                                </Border>
+                            </StackPanel>
+                            <Border x:Name="bd2">
+                                <Image Source="数译_下移-箭头.png" Width="50"/>
+                            </Border>
+                            <StackPanel Orientation="Horizontal" x:Name="sp3">
+                                <TextBlock Text="Step3: 提取CodeList" Style="{StaticResource StepText}"/>
+                                <Border BorderBrush="SkyBlue" BorderThickness="2" CornerRadius="2">
+                                    <Button x:Name="btnCodeList" Width="100" Height="30" Content="运行" Click="btnCodeList_Click"/>
+                                </Border>
+                            </StackPanel>
+                            
+                            <Border x:Name="bd4">
+                                <Image Source="数译_下移-箭头.png" Width="50"/>
+                            </Border>
+                            <StackPanel Orientation="Horizontal" x:Name="sp5">
+                                <TextBlock Style="{StaticResource StepText}"><Run Text="Step"/><Run Language="zh-cn" Text="4"/><Run Text=": 提取字段和分析物"/></TextBlock>
+                                <Border BorderBrush="SkyBlue" BorderThickness="2" CornerRadius="2">
+                                    <Button x:Name="btnFieldList" Width="100" Height="30" Content="运行" Click="btnFieldList_Click"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <Grid Grid.Column="1" Margin="10 0 10 10">
+                        <!-- 日志标题 -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="运行日志" FontSize="20"/>
+                        <Border Grid.Row="1" CornerRadius="4" BorderBrush="CornflowerBlue" BorderThickness="2">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="380" VerticalAlignment="Top">
+                                <TextBlock x:Name="tbLog"  Margin="5" Style="{StaticResource LogText}">
+                 <Run Text="=== CRF数据提取工具日志 ===" FontWeight="Bold"/>
+                 <LineBreak/>
+                 <Run Text="等待操作开始..."/>
+                                </TextBlock>
+                            </ScrollViewer>
+                        </Border>
+
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Schedule解析">
+                <StackPanel>
+                    <Border BorderBrush="SkyBlue" BorderThickness="2" CornerRadius="2">
+                        <Button x:Name="btnScheduleUpload" Width="120" Height="30" Content="上传Schedule.xlsx"/>
+                    </Border>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+        <!--版权标识 -->
+        <TextBlock  Grid.Row="2" Text="© 2026 KimoPig. All Rights Reserved.    " FontStyle="Italic" FontSize="12" TextAlignment="Right" 
+                Background="LightSteelBlue"/>
 
     </Grid>
 </Window>

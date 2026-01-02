@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace GenerateRaveSDSByAi.dataModel
 {
-    internal class Fieid
+    internal class Field
     {
+       
         public string? FormOID { get; set; }       
         public string? FieldOID { get; set; }
         public int Oridinal { get; set; }
         public string? DraftFieldName { get; set; }
 
         public bool DraftFieldActive { get; set; } = true;
-        public bool IsActive { get; set; } = true;
         public string? VariableOID { get; set; }
         public string? DataFormat { get; set; }
         public string? DataDictionaryOID { get; set; }
@@ -22,7 +22,7 @@ namespace GenerateRaveSDSByAi.dataModel
         public string? ControlType { get; set; }
         public string? FieldName { get; set; }
         //public bool SourceDocument { get; set; }
-        public bool IsLog { get; set; } = false;
+        public bool IsGrid { get; set; } = false;
         public string DefaultValue { get; set; } = "";
         public string? SASLabel { get; set; }
         public string? SASFormat { get; set; }
@@ -30,7 +30,8 @@ namespace GenerateRaveSDSByAi.dataModel
         public bool QueryFutureDate { get; set; }=false;
         public bool IsVisible { get; set; } = true;
         public string? AnalyteName { get; set; }
-        public bool IsClinicalSignificance { get; set; } =false; 
+        public bool IsLab { get; set; } = false; // 替代IsClinicalSignificance
+        //public bool IsClinicalSignificance { get; set; } =false; 
         public bool QueryNonConformance { get; set; } =false;
         public bool DoesNotBreakSignature { get; set; } =false;
 
@@ -40,8 +41,11 @@ namespace GenerateRaveSDSByAi.dataModel
             UpdateVariableOID();
             this.DataDictionaryOID = (this.ControlType.Contains("Radio")  || this.ControlType.Contains("Drop")) ? this.FieldOID : "";
             UpdateCodeDic();
+            UpdateQueryNonConformance();
             this.SASLabel = this.FieldName;
             UpdateSASFormat();
+            UpdateIsRequired();
+            UpdateLabel();
         }
 
         public void UpdateVariableOID()
@@ -114,6 +118,36 @@ namespace GenerateRaveSDSByAi.dataModel
             }
 
 
+        }
+
+        public void UpdateIsRequired()
+        {
+            if (this.ControlType == "CheckBox" || this.ControlType == "Dynamic SearchList")
+                this.IsRequired = false;
+            if(this.FieldOID.Contains("COMMENT") || this.FieldName == "备注")
+                this.IsRequired = false;
+
+        }
+
+        public void UpdateQueryNonConformance()
+        {
+            switch (this.ControlType)
+            {
+                case "Dynamic SearchList":
+                case "RadioButton":
+                case "RadioButton (Vertical)":
+                case "DropDownList":
+                case "CheckBox":
+                case "Label":
+                    this.QueryNonConformance = false;
+                    break;
+                
+                case "DateTime":
+                case "LongText":
+                case "Text":
+                    this.QueryNonConformance = true;
+                    break;
+            }
         }
     }
 }

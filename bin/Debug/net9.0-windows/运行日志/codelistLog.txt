@@ -1,0 +1,31 @@
+====================开始解析字段的codelist！！！！2026/1/2 16:18:29
+成功解析字段OID：PCPERF，字段类型和格式：[1] RadioButton
+1=Yes  2=No
+成功解析字段OID：PCTPT，字段类型和格式：[2] DropdownList
+DefaultValue=1,2,3,4,5,6,7,8
+1=Pre-dose
+2=End of infusion (EOI)
+3=EOI+2 h 
+4=EOI+4 h
+5=EOI+7 h
+6=EOI+24 h
+7=EOI+48 h
+8=EOI+72 h
+9=EOI+168 h
+成功解析字段OID：PEPERF，字段类型和格式：RadioButton [1] 
+Code list
+1=是
+2=否
+成功解析字段OID：PEREASND，字段类型和格式：DropDownList [2]
+Code list
+1=受试者拒绝
+2=检查被遗漏
+3=筛选期访视与基线期访视为同一天，无需重复检查
+99=其他，请详述
+Long Text [$200]
+成功解析字段OID：PERES，字段类型和格式：DropDownList [2]Code list1=正常2=异常无临床意义3=异常有临床意义
+成功解析字段OID：PETEST，字段类型和格式：1=一般情况
+2=皮肤黏膜
+3=神经系统
+
+====================字段解析完毕！！！！

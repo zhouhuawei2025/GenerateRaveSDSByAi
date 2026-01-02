@@ -1,0 +1,573 @@
+====================2026/1/2 16:42:49
+====================开始逐一解析Pharmacokinetics sample collection_Q2W_Dose Escalation Part (PC5)中的字段！！！！2026/1/2 16:42:49
+字段OID：PCPERF  字段Name：Were pharmacokinetics (PK) samples collected?  FormOID：PC5 Ordinal：1,  IsGrid：false, 字段详情：[1] RadioButton
+1=Yes  2=No
+字段OID：PCREASND  字段Name：If not, please provide the reason.  FormOID：PC5 Ordinal：2,  IsGrid：false, 字段详情：[$200]LongText
+字段OID：PCTPT  字段Name：Planned Timepoint  FormOID：PC5 Ordinal：3,  IsGrid：true, 字段详情：[2] DropdownList
+DefaultValue=1,2,3,4,5,6,7,8
+1=Pre-dose
+2=End of infusion (EOI)
+3=EOI+2 h 
+4=EOI+4 h
+5=EOI+7 h
+6=EOI+24 h
+7=EOI+48 h
+8=EOI+72 h
+9=EOI+168 h, 默认值：1|2|3|...n| (提取字段词典中每一项的code值，以|分隔) 
+字段OID：PCCSTAT  字段Name：Not Collected  FormOID：PC5 Ordinal：4,  IsGrid：true, 字段详情：[1]CheckBox
+字段OID：PCREAND  字段Name：The reason for not done  FormOID：PC5 Ordinal：5,  IsGrid：true, 字段详情：[$200]LongText
+字段OID：PCDAT  字段Name：Date of the PK sample collection  FormOID：PC5 Ordinal：6,  IsGrid：true, 字段详情：[$10] DateTime
+dd mmm yyyy (calendar tool)
+字段OID：PCTIM  字段Name：Time of the PK serum sample collection (24H)  FormOID：PC5 Ordinal：7,  IsGrid：true, 字段详情：[$5]DateTime
+hh:mm(24H)
+字段OID：PCTIM1  字段Name：Time of the PK plasma sample collection (24H)  FormOID：PC5 Ordinal：8,  IsGrid：true, 字段详情：[$5]DateTime
+hh:mm(24H)
+字段OID：COMMENTS  字段Name：备注  FormOID：PC5 Ordinal：9,  IsGrid：false, 字段详情：Long Text [$200]
+====================AI提取的json如下：
+[
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCPERF",
+    "Oridinal": 1,
+    "FieldName": "Were pharmacokinetics (PK) samples collected?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "PCPERF",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCREASND",
+    "Oridinal": 2,
+    "FieldName": "If not, please provide the reason.",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCTPT",
+    "Oridinal": 3,
+    "FieldName": "Planned Timepoint",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "PCTPT",
+    "DefaultValue": "1|2|3|4|5|6|7|8|9|",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCCSTAT",
+    "Oridinal": 4,
+    "FieldName": "Not Collected",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCREAND",
+    "Oridinal": 5,
+    "FieldName": "The reason for not done",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCDAT",
+    "Oridinal": 6,
+    "FieldName": "Date of the PK sample collection",
+    "ControlType": "DateTime",
+    "DataFormat": "dd MMM yyyy",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCTIM",
+    "Oridinal": 7,
+    "FieldName": "Time of the PK serum sample collection (24H)",
+    "ControlType": "DateTime",
+    "DataFormat": "HH:nn",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCTIM1",
+    "Oridinal": 8,
+    "FieldName": "Time of the PK plasma sample collection (24H)",
+    "ControlType": "DateTime",
+    "DataFormat": "HH:nn",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "COMMENTS",
+    "Oridinal": 9,
+    "FieldName": "备注",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  }
+]
+本次聊天消耗的Token数：3832
+其中输入消耗的Token数：1433
+输出消耗的Token数：2399
+=============开始进行json反序列化 ......2026/1/2 16:46:07
+提取到的纯JSON：
+[
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCPERF",
+    "Oridinal": 1,
+    "FieldName": "Were pharmacokinetics (PK) samples collected?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "PCPERF",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCREASND",
+    "Oridinal": 2,
+    "FieldName": "If not, please provide the reason.",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCTPT",
+    "Oridinal": 3,
+    "FieldName": "Planned Timepoint",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "PCTPT",
+    "DefaultValue": "1|2|3|4|5|6|7|8|9|",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCCSTAT",
+    "Oridinal": 4,
+    "FieldName": "Not Collected",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCREAND",
+    "Oridinal": 5,
+    "FieldName": "The reason for not done",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCDAT",
+    "Oridinal": 6,
+    "FieldName": "Date of the PK sample collection",
+    "ControlType": "DateTime",
+    "DataFormat": "dd MMM yyyy",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCTIM",
+    "Oridinal": 7,
+    "FieldName": "Time of the PK serum sample collection (24H)",
+    "ControlType": "DateTime",
+    "DataFormat": "HH:nn",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "PCTIM1",
+    "Oridinal": 8,
+    "FieldName": "Time of the PK plasma sample collection (24H)",
+    "ControlType": "DateTime",
+    "DataFormat": "HH:nn",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PC5",
+    "FieldOID": "COMMENTS",
+    "Oridinal": 9,
+    "FieldName": "备注",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  }
+]
+------------------------
+====================开始逐一解析体格检查(PE)中的字段！！！！2026/1/2 16:46:07
+字段OID：PEPERF  字段Name：是否进行体格检查？  FormOID：PE   Ordinal：1,  IsGrid：false, 字段详情：RadioButton [1] 
+Code list
+1=是
+2=否
+字段OID：TXT  字段Name：提示文本  FormOID：PE   Ordinal：2,  IsGrid：false, 字段详情：LABEL
+字段OID：PEREASND  字段Name：若否，请说明原因  FormOID：PE   Ordinal：3,  IsGrid：false, 字段详情：DropDownList [2]
+Code list
+1=受试者拒绝
+2=检查被遗漏
+3=筛选期访视与基线期访视为同一天，无需重复检查
+99=其他，请详述
+Long Text [$200]
+字段OID：PEDAT  字段Name：检查日期  FormOID：PE   Ordinal：4,  IsGrid：false, 字段详情：DateTime [YYYY-MM-DD]
+字段OID：PETXT  字段Name：如有其他体格检查项，请新增日志行录入。  FormOID：PE   Ordinal：5,  IsGrid：false, 字段详情：Label
+字段OID：PETEST  字段Name：检查项  FormOID：PE  Ordinal：6,  IsGrid：true, 字段详情：DropDownList[2], 默认值：1|2|3|
+字段OID：PESTAT  字段Name：未查  FormOID：PE  Ordinal：7,  IsGrid：true  字段详情：Check[N1]
+字段OID：PERES  字段Name：检查结果  FormOID：PE  Ordinal：8,  IsGrid：true  字段详情：DropDownList [2]Code list1=正常2=异常无临床意义3=异常有临床意义
+字段OID：PECSAE  字段Name：如异常有临床意义_相关不良事件  FormOID：PE  Ordinal：9,  IsGrid：true  字段详情：Dynamic SearchList [$200]
+字段OID：PECSMH  字段Name：如异常有临床意义_相关既往病史  FormOID：PE  Ordinal：10,  IsGrid：true  字段详情：Dynamic SearchList [$200]
+字段OID：PEOTH  字段Name：如异常，其他请详述  FormOID：PE  Ordinal：11,  IsGrid：true  字段详情：Long Text [$200]
+字段OID：COMMENTS  字段Name：备注  FormOID：PE   Ordinal：12,  IsGrid：false, 字段详情：Long Text [$200]
+====================AI提取的json如下：
+[
+  {
+    "FormOID": "PE",
+    "FieldOID": "PEPERF",
+    "Oridinal": 1,
+    "FieldName": "是否进行体格检查？",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "PEPERF",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "TXT",
+    "Oridinal": 2,
+    "FieldName": "提示文本",
+    "ControlType": "Label",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PEREASND",
+    "Oridinal": 3,
+    "FieldName": "若否，请说明原因",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "PEREASND",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PEDAT",
+    "Oridinal": 4,
+    "FieldName": "检查日期",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PETXT",
+    "Oridinal": 5,
+    "FieldName": "如有其他体格检查项，请新增日志行录入。",
+    "ControlType": "Label",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PETEST",
+    "Oridinal": 6,
+    "FieldName": "检查项",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "PETEST",
+    "DefaultValue": "1|2|3|",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PESTAT",
+    "Oridinal": 7,
+    "FieldName": "未查",
+    "ControlType": "CheckBox",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PERES",
+    "Oridinal": 8,
+    "FieldName": "检查结果",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "PERES",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PECSAE",
+    "Oridinal": 9,
+    "FieldName": "如异常有临床意义_相关不良事件",
+    "ControlType": "Dynamic SearchList",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PECSMH",
+    "Oridinal": 10,
+    "FieldName": "如异常有临床意义_相关既往病史",
+    "ControlType": "Dynamic SearchList",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PEOTH",
+    "Oridinal": 11,
+    "FieldName": "如异常，其他请详述",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "COMMENTS",
+    "Oridinal": 12,
+    "FieldName": "备注",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  }
+]
+本次聊天消耗的Token数：3879
+其中输入消耗的Token数：1479
+输出消耗的Token数：2400
+=============开始进行json反序列化 ......2026/1/2 16:47:45
+提取到的纯JSON：
+[
+  {
+    "FormOID": "PE",
+    "FieldOID": "PEPERF",
+    "Oridinal": 1,
+    "FieldName": "是否进行体格检查？",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "PEPERF",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "TXT",
+    "Oridinal": 2,
+    "FieldName": "提示文本",
+    "ControlType": "Label",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PEREASND",
+    "Oridinal": 3,
+    "FieldName": "若否，请说明原因",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "PEREASND",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PEDAT",
+    "Oridinal": 4,
+    "FieldName": "检查日期",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PETXT",
+    "Oridinal": 5,
+    "FieldName": "如有其他体格检查项，请新增日志行录入。",
+    "ControlType": "Label",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PETEST",
+    "Oridinal": 6,
+    "FieldName": "检查项",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "PETEST",
+    "DefaultValue": "1|2|3|",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PESTAT",
+    "Oridinal": 7,
+    "FieldName": "未查",
+    "ControlType": "CheckBox",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PERES",
+    "Oridinal": 8,
+    "FieldName": "检查结果",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "PERES",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PECSAE",
+    "Oridinal": 9,
+    "FieldName": "如异常有临床意义_相关不良事件",
+    "ControlType": "Dynamic SearchList",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PECSMH",
+    "Oridinal": 10,
+    "FieldName": "如异常有临床意义_相关既往病史",
+    "ControlType": "Dynamic SearchList",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "PEOTH",
+    "Oridinal": 11,
+    "FieldName": "如异常，其他请详述",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PE",
+    "FieldOID": "COMMENTS",
+    "Oridinal": 12,
+    "FieldName": "备注",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  }
+]
+------------------------

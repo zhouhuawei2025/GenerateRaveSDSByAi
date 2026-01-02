@@ -158,7 +158,7 @@ public class FormatCheckUtils
             {
                 string colorName = table.Rows[i].Cells[0].ShadingPattern.Fill.Name;
 
-                if (table.Rows[i].Cells.Count > 3 || (colorName != "0" && colorName != "ffffffff" && colorName != "00ffffff" && colorName != "00000000"))
+                if (table.Rows[i].Cells.Count > 3 || (colorName != "#0" && colorName != "#ffffffff" && colorName != "#00ffffff" && colorName != "#00000000"))
                 {
                     spidFlag = true;
                     loglineFlag = true;

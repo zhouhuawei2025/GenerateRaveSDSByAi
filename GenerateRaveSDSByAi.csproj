@@ -9,17 +9,47 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="提示词\ADD类型表单的field解析.txt" />
+    <None Remove="提示词\FIX类型表单的field解析.txt" />
+    <None Remove="提示词\LAB类型表单的field解析.txt" />
+    <None Remove="提示词\普通表单的field解析.txt" />
+    <None Remove="数译_下移-箭头.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="运行日志\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DocX" Version="5.0.0" />
+    <PackageReference Include="EPPlus" Version="8.4.0" />
     <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.1.0-preview.1.25608.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="提示词\ADD类型表单的field解析.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="提示词\FIX类型表单的field解析.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="提示词\LAB类型表单的field解析.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="提示词\普通表单的field解析.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="数译_下移-箭头.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="提示词\codelist解析.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="配置\aiConfig.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
