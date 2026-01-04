@@ -1,6 +1,210 @@
-====================2026/1/2 21:12:24
-====================开始逐一解析Informed consent (ICF)中的字段！！！！2026/1/2 21:12:24
-字段OID：ICDAT  字段Name：Date of Initial informed consent signed  FormOID：ICF Ordinal：1, IsGrid：false, 字段详情：[$10] DateTime
+====================2026/1/4 14:20:58
+====================开始逐一解析Subject Information (SI)中的字段！！！！2026/1/4 14:20:58
+字段OID：SUBJID  字段Name：Subject Identifier*  所属表单：SI Ordinal：1  字段详情：[7+] Text
+
+字段OID：RESCRN  字段Name：Has the subject been re-screened?  所属表单：SI Ordinal：2  字段详情：[1] RadioButton
+1=Yes  2=No
+字段OID：PSUBJID  字段Name：If re-screened, please provide previous Subject ID  所属表单：SI Ordinal：3  字段详情：[7+] Text
+【拆分批次】总数据量：3条，批次大小：20条，总批次：1批
+====================AI提取的json如下：
+[
+  {
+    "FormOID": "SI",
+    "FieldOID": "SUBJID",
+    "Oridinal": 1,
+    "FieldName": "Subject Identifier*",
+    "ControlType": "Text",
+    "DataFormat": "7+",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "SI",
+    "FieldOID": "RESCRN",
+    "Oridinal": 2,
+    "FieldName": "Has the subject been re-screened?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "RESCRN",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "SI",
+    "FieldOID": "PSUBJID",
+    "Oridinal": 3,
+    "FieldName": "If re-screened, please provide previous Subject ID",
+    "ControlType": "Text",
+    "DataFormat": "7+",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  }
+]
+本次聊天消耗的Token数：1480
+其中输入消耗的Token数：910
+输出消耗的Token数：570
+=============开始进行json反序列化 ......2026/1/4 14:21:28
+提取到的纯JSON：
+[
+  {
+    "FormOID": "SI",
+    "FieldOID": "SUBJID",
+    "Oridinal": 1,
+    "FieldName": "Subject Identifier*",
+    "ControlType": "Text",
+    "DataFormat": "7+",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "SI",
+    "FieldOID": "RESCRN",
+    "Oridinal": 2,
+    "FieldName": "Has the subject been re-screened?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "RESCRN",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "SI",
+    "FieldOID": "PSUBJID",
+    "Oridinal": 3,
+    "FieldName": "If re-screened, please provide previous Subject ID",
+    "ControlType": "Text",
+    "DataFormat": "7+",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  }
+]
+------------------------
+第【1/1】批解析成功，新增字段3个
+====================开始逐一解析Subject Visits (SV1)中的字段！！！！2026/1/4 14:21:28
+字段OID：VISDAT  字段Name：Date of the Visit  所属表单：SV1 Ordinal：1  字段详情：DateTime
+dd mmm yyyy (calendar tool)
+【拆分批次】总数据量：1条，批次大小：20条，总批次：1批
+====================AI提取的json如下：
+[{
+  "FormOID": "SV1",
+  "FieldOID": "VISDAT",
+  "Oridinal": 1,
+  "FieldName": "Date of the Visit",
+  "ControlType": "DateTime",
+  "DataFormat": "dd MMM yyyy",
+  "DataDictionaryOID": "",
+  "DefaultValue": "",
+  "QueryFutureDate": true
+}]
+本次聊天消耗的Token数：1202
+其中输入消耗的Token数：828
+输出消耗的Token数：374
+=============开始进行json反序列化 ......2026/1/4 14:21:51
+提取到的纯JSON：
+[{
+  "FormOID": "SV1",
+  "FieldOID": "VISDAT",
+  "Oridinal": 1,
+  "FieldName": "Date of the Visit",
+  "ControlType": "DateTime",
+  "DataFormat": "dd MMM yyyy",
+  "DataDictionaryOID": "",
+  "DefaultValue": "",
+  "QueryFutureDate": true
+}]
+------------------------
+第【1/1】批解析成功，新增字段1个
+====================开始逐一解析Subject Visits (SV2)中的字段！！！！2026/1/4 14:21:51
+字段OID：SVOCCUR  字段Name：Was the visit performed?  所属表单：SV2 Ordinal：1  字段详情：[1] Radio Button
+1=Yes  2=No
+字段OID：SVREASOC  字段Name：If not, please specify the reason.  所属表单：SV2 Ordinal：2  字段详情：[$200] Long Text
+字段OID：VISDAT  字段Name：Date of the Visit  所属表单：SV2 Ordinal：3  字段详情：DateTime
+dd mmm yyyy (calendar tool)
+【拆分批次】总数据量：3条，批次大小：20条，总批次：1批
+====================AI提取的json如下：
+[
+  {
+    "FormOID": "SV2",
+    "FieldOID": "SVOCCUR",
+    "Oridinal": 1,
+    "FieldName": "Was the visit performed?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "SVOCCUR",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "SV2",
+    "FieldOID": "SVREASOC",
+    "Oridinal": 2,
+    "FieldName": "If not, please specify the reason.",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "SV2",
+    "FieldOID": "VISDAT",
+    "Oridinal": 3,
+    "FieldName": "Date of the Visit",
+    "ControlType": "DateTime",
+    "DataFormat": "dd MMM yyyy",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true
+  }
+]
+本次聊天消耗的Token数：1834
+其中输入消耗的Token数：919
+输出消耗的Token数：915
+=============开始进行json反序列化 ......2026/1/4 14:22:33
+提取到的纯JSON：
+[
+  {
+    "FormOID": "SV2",
+    "FieldOID": "SVOCCUR",
+    "Oridinal": 1,
+    "FieldName": "Was the visit performed?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "SVOCCUR",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "SV2",
+    "FieldOID": "SVREASOC",
+    "Oridinal": 2,
+    "FieldName": "If not, please specify the reason.",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "SV2",
+    "FieldOID": "VISDAT",
+    "Oridinal": 3,
+    "FieldName": "Date of the Visit",
+    "ControlType": "DateTime",
+    "DataFormat": "dd MMM yyyy",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true
+  }
+]
+------------------------
+第【1/1】批解析成功，新增字段3个
+====================开始逐一解析Informed consent (ICF)中的字段！！！！2026/1/4 14:22:33
+字段OID：ICDAT  字段Name：Date of Initial informed consent signed  FormOID：ICF Ordinal：1, IsGrid：false, 字段详情：DateTime
 dd mmm yyyy (calendar tool)
 字段OID：VERS  字段Name：Protocol version for initial signed informed consent  FormOID：ICF Ordinal：2, IsGrid：false, 字段详情：[2] RadioButton
 1=1.0
@@ -8,15 +212,3657 @@ dd mmm yyyy (calendar tool)
 字段OID：VERSOTH  字段Name：Other version, please specify  FormOID：ICF Ordinal：3, IsGrid：false, 字段详情：[2.1] Text
 字段OID：RESIYN  字段Name：Was reconsent required or obtained?  FormOID：ICF Ordinal：4, IsGrid：false, 字段详情：[1] RadioButton
 1=Yes  2=No
-字段OID：REICDAT  字段Name：Date of informed consent signing  FormOID：ICF Ordinal：5, IsGrid：true, 字段详情：[$10] DateTimedd mmm yyyy (calendar tool)
-字段OID：REVERS  字段Name：The version number of the protocol applicable when re-signing the informed consent  FormOID：ICF Ordinal：6, IsGrid：true, 字段详情：[2] RadioButton1=Other
+字段OID：REICDAT  字段Name：Date of informed consent signing  FormOID：ICF Ordinal：5, IsGrid：true, 字段详情：DateTimedd mmm yyyy (calendar tool)
+字段OID：REVERS  字段Name：The version number of the protocol applicable when re-signing the informed consent  FormOID：ICF Ordinal：6, IsGrid：true, 字段详情：[2] RadioButton1=1.199=Other
 字段OID：REVEROTH  字段Name：Other version, please specify  FormOID：ICF Ordinal：7, IsGrid：true, 字段详情：[2.1] Text
+【拆分批次】总数据量：7条，批次大小：20条，总批次：1批
 ====================AI提取的json如下：
-[{"FormOID":"ICF","FieldOID":"ICDAT","Oridinal":1,"FieldName":"Date of Initial informed consent signed","ControlType":"DateTime","DataFormat":"dd MMM yyyy","DataDictionaryOID":"","DefaultValue":"","QueryFutureDate":true,"IsGrid":false},{"FormOID":"ICF","FieldOID":"VERS","Oridinal":2,"FieldName":"Protocol version for initial signed informed consent","ControlType":"RadioButton","DataFormat":"2","DataDictionaryOID":"VERS","DefaultValue":"","QueryFutureDate":false,"IsGrid":false},{"FormOID":"ICF","FieldOID":"VERSOTH","Oridinal":3,"FieldName":"Other version, please specify","ControlType":"Text","DataFormat":"2.1","DataDictionaryOID":"","DefaultValue":"","QueryFutureDate":false,"IsGrid":false},{"FormOID":"ICF","FieldOID":"RESIYN","Oridinal":4,"FieldName":"Was reconsent required or obtained?","ControlType":"RadioButton","DataFormat":"1","DataDictionaryOID":"RESIYN","DefaultValue":"","QueryFutureDate":false,"IsGrid":false},{"FormOID":"ICF","FieldOID":"REICDAT","Oridinal":5,"FieldName":"Date of informed consent signing","ControlType":"DateTime","DataFormat":"dd MMM yyyy","DataDictionaryOID":"","DefaultValue":"","QueryFutureDate":true,"IsGrid":true},{"FormOID":"ICF","FieldOID":"REVERS","Oridinal":6,"FieldName":"The version number of the protocol applicable when re-signing the informed consent","ControlType":"RadioButton","DataFormat":"2","DataDictionaryOID":"REVERS","DefaultValue":"","QueryFutureDate":false,"IsGrid":true},{"FormOID":"ICF","FieldOID":"REVEROTH","Oridinal":7,"FieldName":"Other version, please specify","ControlType":"Text","DataFormat":"2.1","DataDictionaryOID":"","DefaultValue":"","QueryFutureDate":false,"IsGrid":true}]
-本次聊天消耗的Token数：1480
-其中输入消耗的Token数：1073
-输出消耗的Token数：407
-=============开始进行json反序列化 ......2026/1/2 21:12:44
+[
+  {
+    "FormOID": "ICF",
+    "FieldOID": "ICDAT",
+    "Oridinal": 1,
+    "FieldName": "Date of Initial informed consent signed",
+    "ControlType": "DateTime",
+    "DataFormat": "dd MMM yyyy",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "ICF",
+    "FieldOID": "VERS",
+    "Oridinal": 2,
+    "FieldName": "Protocol version for initial signed informed consent",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "VERS",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "ICF",
+    "FieldOID": "VERSOTH",
+    "Oridinal": 3,
+    "FieldName": "Other version, please specify",
+    "ControlType": "Text",
+    "DataFormat": "2.1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "ICF",
+    "FieldOID": "RESIYN",
+    "Oridinal": 4,
+    "FieldName": "Was reconsent required or obtained?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "RESIYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "ICF",
+    "FieldOID": "REICDAT",
+    "Oridinal": 5,
+    "FieldName": "Date of informed consent signing",
+    "ControlType": "DateTime",
+    "DataFormat": "dd MMM yyyy",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "ICF",
+    "FieldOID": "REVERS",
+    "Oridinal": 6,
+    "FieldName": "The version number of the protocol applicable when re-signing the informed consent",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "REVERS",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "ICF",
+    "FieldOID": "REVEROTH",
+    "Oridinal": 7,
+    "FieldName": "Other version, please specify",
+    "ControlType": "Text",
+    "DataFormat": "2.1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  }
+]
+本次聊天消耗的Token数：2750
+其中输入消耗的Token数：1144
+输出消耗的Token数：1606
+=============开始进行json反序列化 ......2026/1/4 14:23:38
 提取到的纯JSON：
-[{"FormOID":"ICF","FieldOID":"ICDAT","Oridinal":1,"FieldName":"Date of Initial informed consent signed","ControlType":"DateTime","DataFormat":"dd MMM yyyy","DataDictionaryOID":"","DefaultValue":"","QueryFutureDate":true,"IsGrid":false},{"FormOID":"ICF","FieldOID":"VERS","Oridinal":2,"FieldName":"Protocol version for initial signed informed consent","ControlType":"RadioButton","DataFormat":"2","DataDictionaryOID":"VERS","DefaultValue":"","QueryFutureDate":false,"IsGrid":false},{"FormOID":"ICF","FieldOID":"VERSOTH","Oridinal":3,"FieldName":"Other version, please specify","ControlType":"Text","DataFormat":"2.1","DataDictionaryOID":"","DefaultValue":"","QueryFutureDate":false,"IsGrid":false},{"FormOID":"ICF","FieldOID":"RESIYN","Oridinal":4,"FieldName":"Was reconsent required or obtained?","ControlType":"RadioButton","DataFormat":"1","DataDictionaryOID":"RESIYN","DefaultValue":"","QueryFutureDate":false,"IsGrid":false},{"FormOID":"ICF","FieldOID":"REICDAT","Oridinal":5,"FieldName":"Date of informed consent signing","ControlType":"DateTime","DataFormat":"dd MMM yyyy","DataDictionaryOID":"","DefaultValue":"","QueryFutureDate":true,"IsGrid":true},{"FormOID":"ICF","FieldOID":"REVERS","Oridinal":6,"FieldName":"The version number of the protocol applicable when re-signing the informed consent","ControlType":"RadioButton","DataFormat":"2","DataDictionaryOID":"REVERS","DefaultValue":"","QueryFutureDate":false,"IsGrid":true},{"FormOID":"ICF","FieldOID":"REVEROTH","Oridinal":7,"FieldName":"Other version, please specify","ControlType":"Text","DataFormat":"2.1","DataDictionaryOID":"","DefaultValue":"","QueryFutureDate":false,"IsGrid":true}]
+[
+  {
+    "FormOID": "ICF",
+    "FieldOID": "ICDAT",
+    "Oridinal": 1,
+    "FieldName": "Date of Initial informed consent signed",
+    "ControlType": "DateTime",
+    "DataFormat": "dd MMM yyyy",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "ICF",
+    "FieldOID": "VERS",
+    "Oridinal": 2,
+    "FieldName": "Protocol version for initial signed informed consent",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "VERS",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "ICF",
+    "FieldOID": "VERSOTH",
+    "Oridinal": 3,
+    "FieldName": "Other version, please specify",
+    "ControlType": "Text",
+    "DataFormat": "2.1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "ICF",
+    "FieldOID": "RESIYN",
+    "Oridinal": 4,
+    "FieldName": "Was reconsent required or obtained?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "RESIYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "ICF",
+    "FieldOID": "REICDAT",
+    "Oridinal": 5,
+    "FieldName": "Date of informed consent signing",
+    "ControlType": "DateTime",
+    "DataFormat": "dd MMM yyyy",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "ICF",
+    "FieldOID": "REVERS",
+    "Oridinal": 6,
+    "FieldName": "The version number of the protocol applicable when re-signing the informed consent",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "REVERS",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "ICF",
+    "FieldOID": "REVEROTH",
+    "Oridinal": 7,
+    "FieldName": "Other version, please specify",
+    "ControlType": "Text",
+    "DataFormat": "2.1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  }
+]
 ------------------------
+第【1/1】批解析成功，新增字段7个
+====================开始逐一解析Demographics (DM)中的字段！！！！2026/1/4 14:23:38
+字段OID：BRTHDAT  字段Name：Date of Birth  所属表单：DM Ordinal：1  字段详情：DateTime
+dd-mmm-yyyy (calendar tool)
+字段OID：AGE  字段Name：Age  所属表单：DM Ordinal：2  字段详情：[2] Text 
+字段OID：AGEU  字段Name：Age Unit  所属表单：DM Ordinal：3  字段详情：RadioButton[2], 默认值：1|
+字段OID：SEX  字段Name：Sex  所属表单：DM Ordinal：4  字段详情：[1] Radio Button
+1=Male  
+2=Female
+字段OID：CHILDPOT  字段Name：If female, is the subject of childbearing potential?  所属表单：DM Ordinal：5  字段详情：[1] Radio Button
+1=Yes  
+2=No
+
+字段OID：CHILDREA  字段Name：If No, please specify the reason  所属表单：DM Ordinal：6  字段详情：[2] Radio Button
+1=Post-menopausal 
+2=Permanently sterile
+99=Other
+字段OID：CDREAOTH  字段Name：Other, please specify  所属表单：DM Ordinal：7  字段详情：[$200] LongText
+字段OID：RACE  字段Name：Race  所属表单：DM Ordinal：8  字段详情：[2] Radio Button
+1=Asian
+2=American Indian or Alaska Native
+3=Black or African American
+4=Native Hawaiian or other Pacific Islander
+5=White
+99=Other
+字段OID：RACEOTH  字段Name：Other race, please specify.  所属表单：DM Ordinal：9  字段详情：[$200] Long Text
+字段OID：ETHNI  字段Name：Ethnicity  所属表单：DM Ordinal：10  字段详情：[2] Radio Button
+1=Hispanic or Latino 
+2=Not-Hispanic or Latino 
+3=Not reported
+【拆分批次】总数据量：10条，批次大小：20条，总批次：1批
+====================AI提取的json如下：
+[
+  {
+    "FormOID": "DM",
+    "FieldOID": "BRTHDAT",
+    "Oridinal": 1,
+    "FieldName": "Date of Birth",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "AGE",
+    "Oridinal": 2,
+    "FieldName": "Age",
+    "ControlType": "Text",
+    "DataFormat": "2",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "AGEU",
+    "Oridinal": 3,
+    "FieldName": "Age Unit",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "AGEU",
+    "DefaultValue": "1|",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "SEX",
+    "Oridinal": 4,
+    "FieldName": "Sex",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "SEX",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "CHILDPOT",
+    "Oridinal": 5,
+    "FieldName": "If female, is the subject of childbearing potential?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "CHILDPOT",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "CHILDREA",
+    "Oridinal": 6,
+    "FieldName": "If No, please specify the reason",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "CHILDREA",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "CDREAOTH",
+    "Oridinal": 7,
+    "FieldName": "Other, please specify",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "RACE",
+    "Oridinal": 8,
+    "FieldName": "Race",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "RACE",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "RACEOTH",
+    "Oridinal": 9,
+    "FieldName": "Other race, please specify.",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "ETHNI",
+    "Oridinal": 10,
+    "FieldName": "Ethnicity",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "ETHNI",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  }
+]
+本次聊天消耗的Token数：3455
+其中输入消耗的Token数：1241
+输出消耗的Token数：2214
+=============开始进行json反序列化 ......2026/1/4 14:25:05
+提取到的纯JSON：
+[
+  {
+    "FormOID": "DM",
+    "FieldOID": "BRTHDAT",
+    "Oridinal": 1,
+    "FieldName": "Date of Birth",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "AGE",
+    "Oridinal": 2,
+    "FieldName": "Age",
+    "ControlType": "Text",
+    "DataFormat": "2",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "AGEU",
+    "Oridinal": 3,
+    "FieldName": "Age Unit",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "AGEU",
+    "DefaultValue": "1|",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "SEX",
+    "Oridinal": 4,
+    "FieldName": "Sex",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "SEX",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "CHILDPOT",
+    "Oridinal": 5,
+    "FieldName": "If female, is the subject of childbearing potential?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "CHILDPOT",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "CHILDREA",
+    "Oridinal": 6,
+    "FieldName": "If No, please specify the reason",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "CHILDREA",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "CDREAOTH",
+    "Oridinal": 7,
+    "FieldName": "Other, please specify",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "RACE",
+    "Oridinal": 8,
+    "FieldName": "Race",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "RACE",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "RACEOTH",
+    "Oridinal": 9,
+    "FieldName": "Other race, please specify.",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "DM",
+    "FieldOID": "ETHNI",
+    "Oridinal": 10,
+    "FieldName": "Ethnicity",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "ETHNI",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  }
+]
+------------------------
+第【1/1】批解析成功，新增字段10个
+====================开始逐一解析Disease history and condition (MH_DH)中的字段！！！！2026/1/4 14:25:05
+字段OID：CLINDIG  字段Name：Clinical diagnosis  所属表单：MH_DH Ordinal：1  字段详情：[2] Dropdown List
+1=Colorectal cancer
+2=Gastric cancer (GC)
+3=Gastroesophageal junction cancer (GEJC)
+4=Pancreatic ductal adenocarcinoma (PDAC)
+5= Ovarian cancer
+6= Non-small cell lung cancer (NSCLC)
+7= Liver cancer
+99=Other solid tumors
+字段OID：CLINOTH  字段Name：Other solid tumors, please specify  所属表单：MH_DH Ordinal：2  字段详情：[$200] LongText
+字段OID：DHIDDAT  字段Name：Date of initial pathological diagnosis  所属表单：MH_DH Ordinal：3  字段详情：DateTime
+dd-mmm-yyyy- (calendar tool)
+字段OID：PATHO  字段Name：Pathological Type  所属表单：MH_DH Ordinal：4  字段详情：[2] DropdownList
+1=Adenocarcinoma 
+2=Mucinous adenocarcinoma
+3=Signet-ring cell carcinoma
+4=Medullary carcinoma
+5=Micropapillary carcinoma
+6=Adenosquamous carcinoma
+7=Undifferentiated carcinoma
+8=Tubular adenocarcinoma
+9=Papillary adenocarcinoma
+10=Poorly cohesive carcinoma
+11=Hepatoid adenocarcinoma
+12=Squamous cell carcinoma
+13=Neuroendocrine neoplasms 
+14=Ductal adenocarcinoma
+15=Colloid carcinoma
+99=Other
+字段OID：PATHOTO  字段Name：Other, please specify  所属表单：MH_DH Ordinal：5  字段详情：[$200] LongText
+字段OID：DHTRDAT  字段Name：First date of tumor metastasis/recurrence  所属表单：MH_DH Ordinal：6  字段详情：DateTime
+dd-mmm-yyyy- (calendar tool)
+字段OID：HER2  字段Name：HER2 status  所属表单：MH_DH Ordinal：7  字段详情：[2] Radio Button
+1= Negative
+2= Positive
+3= Not Evaluable
+4= Not done
+字段OID：CLDN182  字段Name：Claudin18.2 status  所属表单：MH_DH Ordinal：8  字段详情：[2] Radio Button
+1= Negative
+2= Positive
+3= Not Evaluable
+4= Not done
+字段OID：RAS  字段Name：RAS status  所属表单：MH_DH Ordinal：9  字段详情：[2] Radio Button
+1=Mutant   
+2=Wild type   
+3=Not Evaluable   
+4=Not done
+字段OID：BRAF  字段Name：BRAF status  所属表单：MH_DH Ordinal：10  字段详情：[2] Radio Button
+1=Mutant   
+2=Wild type   
+3=Not Evaluable
+4=Not done
+字段OID：DHTMOTO  字段Name：If other gene mutations or expressions positive, please specify  所属表单：MH_DH Ordinal：11  字段详情：[$200]Text
+字段OID：FIGSTAGE  字段Name：If it is ovarian cancer, please fill in the FIGO stage.  所属表单：MH_DH Ordinal：12  字段详情：[2] DropdownList
+1=Stage I
+2=Stage IA
+3=Stage IB
+4=Stage IC
+5=Stage II
+6=Stage IIA
+7=Stage IIB
+8=Stage III
+9=Stage IIIA
+10=Stage IIIB
+11=Stage IIIC
+12=Stage IV
+13=Stage IVA
+14=Stage IVB
+99=Other
+字段OID：FIGSTOTH  字段Name：Others, please specify  所属表单：MH_DH Ordinal：13  字段详情：[$200]Text
+字段OID：BCLSTAGE  字段Name：If it is liver cancer, please fill in the BCLC stage.  所属表单：MH_DH Ordinal：14  字段详情：[2] DropdownList
+1=Stage 0
+2=Stage A
+3=Stage B
+4=Stage C
+5=Stage D
+99=Other
+字段OID：BCLSTOTH  字段Name：Others, please specify  所属表单：MH_DH Ordinal：15  字段详情：
+字段OID：MHDH2  字段Name：Current tumor stage  所属表单：MH_DH Ordinal：16  字段详情：Label
+字段OID：AJCC104  字段Name：TNM staging  所属表单：MH_DH Ordinal：17  字段详情：[2] DropdownList
+1=Stage I
+2=Stage IA
+3=Stage IB
+4=Stage IC
+5=Stage II
+6=Stage IIA
+7=Stage IIB
+8=Stage IIC
+9=Stage III
+10=Stage IIIA
+11=Stage IIIB
+12=Stage IIIC
+13=Stage IV
+14=Stage IVA
+15=Stage IVB
+16=Stage IVC
+99=Other
+字段OID：AJCC104O  字段Name：Other stage, please specify  所属表单：MH_DH Ordinal：18  字段详情：[$200] Text
+字段OID：AJCC101  字段Name：T (Primary Tumor)  所属表单：MH_DH Ordinal：19  字段详情：[2] DropdownList
+1=Tx
+2=T0
+3=Tis
+4=T1
+5=T2
+6=T3
+7=T4
+字段OID：AJCC102  字段Name：N (Regional lymph nodes)  所属表单：MH_DH Ordinal：20  字段详情：[2] DropdownList
+1=Nx
+2=N0
+3=N1
+4=N2
+5=N3
+字段OID：AJCC103  字段Name：M (Distant Metastasis)  所属表单：MH_DH Ordinal：21  字段详情：[2] DropdownList
+1=Mx 
+2=M0
+3=M1a
+4=M1b
+5=M1c
+6=M1
+字段OID：MLOCYN  字段Name：Are there any metastatic sites?  所属表单：MH_DH Ordinal：22  字段详情：[1] RadioButton
+1=Yes  2=No
+字段OID：MHDH3  字段Name：Location of metastatic sites (before enrollment)  所属表单：MH_DH Ordinal：23  字段详情：Label
+字段OID：MLOC1  字段Name：Liver  所属表单：MH_DH Ordinal：24  字段详情：[1] CheckBox
+字段OID：MLOC2  字段Name：Lung  所属表单：MH_DH Ordinal：25  字段详情：[1] CheckBox
+字段OID：MLOC3  字段Name：Peritoneum  所属表单：MH_DH Ordinal：26  字段详情：[1] CheckBox
+字段OID：MLOC4  字段Name：Lymph node  所属表单：MH_DH Ordinal：27  字段详情：[1] CheckBox
+字段OID：MLOC5  字段Name：Brain  所属表单：MH_DH Ordinal：28  字段详情：[1] CheckBox
+字段OID：MLOC6  字段Name：Bone  所属表单：MH_DH Ordinal：29  字段详情：[1] CheckBox
+字段OID：MLOC7  字段Name：Pancreas  所属表单：MH_DH Ordinal：30  字段详情：[1] CheckBox
+字段OID：MLOC8  字段Name：Bile duct  所属表单：MH_DH Ordinal：31  字段详情：[1] CheckBox
+字段OID：MLOC9  字段Name：Esophagus  所属表单：MH_DH Ordinal：32  字段详情：[1] CheckBox
+字段OID：MLOC10  字段Name：Colorectal  所属表单：MH_DH Ordinal：33  字段详情：[1] CheckBox
+字段OID：MLOC11  字段Name：Uterus  所属表单：MH_DH Ordinal：34  字段详情：[1] CheckBox
+字段OID：MLOC12  字段Name：Stomach  所属表单：MH_DH Ordinal：35  字段详情：[1] CheckBox
+字段OID：MLOC13  字段Name：Kidney  所属表单：MH_DH Ordinal：36  字段详情：[1] CheckBox
+字段OID：MLOC14  字段Name：Adrenal gland  所属表单：MH_DH Ordinal：37  字段详情：[1] CheckBox
+字段OID：MLOC15  字段Name：Spleen  所属表单：MH_DH Ordinal：38  字段详情：[1] CheckBox
+字段OID：MLOC16  字段Name：Breast  所属表单：MH_DH Ordinal：39  字段详情：[1] CheckBox
+字段OID：MLOC17  字段Name：Ovary  所属表单：MH_DH Ordinal：40  字段详情：[1] CheckBox
+字段OID：MLOC18  字段Name：Skin  所属表单：MH_DH Ordinal：41  字段详情：[1] CheckBox
+字段OID：MLOC19  字段Name：Pleura  所属表单：MH_DH Ordinal：42  字段详情：[1] CheckBox
+字段OID：MLOC20  字段Name：Head and neck  所属表单：MH_DH Ordinal：43  字段详情：[1] CheckBox
+字段OID：MLOC21  字段Name：Mediastinum  所属表单：MH_DH Ordinal：44  字段详情：[1] CheckBox
+字段OID：MLOC22  字段Name：Pericardium  所属表单：MH_DH Ordinal：45  字段详情：[1] CheckBox
+字段OID：MLOC23  字段Name：Pleural effusion  所属表单：MH_DH Ordinal：46  字段详情：[1] CheckBox
+字段OID：MLOC24  字段Name：Ascites  所属表单：MH_DH Ordinal：47  字段详情：[1] CheckBox
+字段OID：MLOC25  字段Name：Pelvic effusion  所属表单：MH_DH Ordinal：48  字段详情：[1] CheckBox
+字段OID：MLOC99  字段Name：Others  所属表单：MH_DH Ordinal：49  字段详情：[1] CheckBox
+字段OID：MLOCOTH  字段Name：Other metastatic sites, please specify  所属表单：MH_DH Ordinal：50  字段详情：[$200] Text
+【拆分批次】总数据量：50条，批次大小：20条，总批次：3批
+====================AI提取的json如下：
+[
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "CLINDIG",
+    "Oridinal": 1,
+    "FieldName": "Clinical diagnosis",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "CLINDIG",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "CLINOTH",
+    "Oridinal": 2,
+    "FieldName": "Other solid tumors, please specify",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "DHIDDAT",
+    "Oridinal": 3,
+    "FieldName": "Date of initial pathological diagnosis",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "PATHO",
+    "Oridinal": 4,
+    "FieldName": "Pathological Type",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "PATHO",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "PATHOTO",
+    "Oridinal": 5,
+    "FieldName": "Other, please specify",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "DHTRDAT",
+    "Oridinal": 6,
+    "FieldName": "First date of tumor metastasis/recurrence",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "HER2",
+    "Oridinal": 7,
+    "FieldName": "HER2 status",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "HER2",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "CLDN182",
+    "Oridinal": 8,
+    "FieldName": "Claudin18.2 status",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "CLDN182",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "RAS",
+    "Oridinal": 9,
+    "FieldName": "RAS status",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "RAS",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "BRAF",
+    "Oridinal": 10,
+    "FieldName": "BRAF status",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "BRAF",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "DHTMOTO",
+    "Oridinal": 11,
+    "FieldName": "If other gene mutations or expressions positive, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "FIGSTAGE",
+    "Oridinal": 12,
+    "FieldName": "If it is ovarian cancer, please fill in the FIGO stage.",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "FIGSTAGE",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "FIGSTOTH",
+    "Oridinal": 13,
+    "FieldName": "Others, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "BCLSTAGE",
+    "Oridinal": 14,
+    "FieldName": "If it is liver cancer, please fill in the BCLC stage.",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "BCLSTAGE",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "BCLSTOTH",
+    "Oridinal": 15,
+    "FieldName": "Others, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MHDH2",
+    "Oridinal": 16,
+    "FieldName": "Current tumor stage",
+    "ControlType": "Label",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "AJCC104",
+    "Oridinal": 17,
+    "FieldName": "TNM staging",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "AJCC104",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "AJCC104O",
+    "Oridinal": 18,
+    "FieldName": "Other stage, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "AJCC101",
+    "Oridinal": 19,
+    "FieldName": "T (Primary Tumor)",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "AJCC101",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "AJCC102",
+    "Oridinal": 20,
+    "FieldName": "N (Regional lymph nodes)",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "AJCC102",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  }
+]
+本次聊天消耗的Token数：4804
+其中输入消耗的Token数：2118
+输出消耗的Token数：2686
+=============开始进行json反序列化 ......2026/1/4 14:26:47
+提取到的纯JSON：
+[
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "CLINDIG",
+    "Oridinal": 1,
+    "FieldName": "Clinical diagnosis",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "CLINDIG",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "CLINOTH",
+    "Oridinal": 2,
+    "FieldName": "Other solid tumors, please specify",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "DHIDDAT",
+    "Oridinal": 3,
+    "FieldName": "Date of initial pathological diagnosis",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "PATHO",
+    "Oridinal": 4,
+    "FieldName": "Pathological Type",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "PATHO",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "PATHOTO",
+    "Oridinal": 5,
+    "FieldName": "Other, please specify",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "DHTRDAT",
+    "Oridinal": 6,
+    "FieldName": "First date of tumor metastasis/recurrence",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "HER2",
+    "Oridinal": 7,
+    "FieldName": "HER2 status",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "HER2",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "CLDN182",
+    "Oridinal": 8,
+    "FieldName": "Claudin18.2 status",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "CLDN182",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "RAS",
+    "Oridinal": 9,
+    "FieldName": "RAS status",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "RAS",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "BRAF",
+    "Oridinal": 10,
+    "FieldName": "BRAF status",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "BRAF",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "DHTMOTO",
+    "Oridinal": 11,
+    "FieldName": "If other gene mutations or expressions positive, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "FIGSTAGE",
+    "Oridinal": 12,
+    "FieldName": "If it is ovarian cancer, please fill in the FIGO stage.",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "FIGSTAGE",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "FIGSTOTH",
+    "Oridinal": 13,
+    "FieldName": "Others, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "BCLSTAGE",
+    "Oridinal": 14,
+    "FieldName": "If it is liver cancer, please fill in the BCLC stage.",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "BCLSTAGE",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "BCLSTOTH",
+    "Oridinal": 15,
+    "FieldName": "Others, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MHDH2",
+    "Oridinal": 16,
+    "FieldName": "Current tumor stage",
+    "ControlType": "Label",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "AJCC104",
+    "Oridinal": 17,
+    "FieldName": "TNM staging",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "AJCC104",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "AJCC104O",
+    "Oridinal": 18,
+    "FieldName": "Other stage, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "AJCC101",
+    "Oridinal": 19,
+    "FieldName": "T (Primary Tumor)",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "AJCC101",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "AJCC102",
+    "Oridinal": 20,
+    "FieldName": "N (Regional lymph nodes)",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "AJCC102",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  }
+]
+------------------------
+第【1/3】批解析成功，新增字段20个
+====================AI提取的json如下：
+[
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "AJCC103",
+    "Oridinal": 21,
+    "FieldName": "M (Distant Metastasis)",
+    "ControlType": "DropdownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "AJCC103",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOCYN",
+    "Oridinal": 22,
+    "FieldName": "Are there any metastatic sites?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "MLOCYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MHDH3",
+    "Oridinal": 23,
+    "FieldName": "Location of metastatic sites (before enrollment)",
+    "ControlType": "Label",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC1",
+    "Oridinal": 24,
+    "FieldName": "Liver",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC2",
+    "Oridinal": 25,
+    "FieldName": "Lung",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC3",
+    "Oridinal": 26,
+    "FieldName": "Peritoneum",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC4",
+    "Oridinal": 27,
+    "FieldName": "Lymph node",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC5",
+    "Oridinal": 28,
+    "FieldName": "Brain",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC6",
+    "Oridinal": 29,
+    "FieldName": "Bone",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC7",
+    "Oridinal": 30,
+    "FieldName": "Pancreas",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC8",
+    "Oridinal": 31,
+    "FieldName": "Bile duct",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC9",
+    "Oridinal": 32,
+    "FieldName": "Esophagus",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC10",
+    "Oridinal": 33,
+    "FieldName": "Colorectal",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC11",
+    "Oridinal": 34,
+    "FieldName": "Uterus",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC12",
+    "Oridinal": 35,
+    "FieldName": "Stomach",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC13",
+    "Oridinal": 36,
+    "FieldName": "Kidney",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC14",
+    "Oridinal": 37,
+    "FieldName": "Adrenal gland",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC15",
+    "Oridinal": 38,
+    "FieldName": "Spleen",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC16",
+    "Oridinal": 39,
+    "FieldName": "Breast",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC17",
+    "Oridinal": 40,
+    "FieldName": "Ovary",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  }
+]
+本次聊天消耗的Token数：4066
+其中输入消耗的Token数：1561
+输出消耗的Token数：2505
+=============开始进行json反序列化 ......2026/1/4 14:28:23
+提取到的纯JSON：
+[
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "AJCC103",
+    "Oridinal": 21,
+    "FieldName": "M (Distant Metastasis)",
+    "ControlType": "DropdownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "AJCC103",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOCYN",
+    "Oridinal": 22,
+    "FieldName": "Are there any metastatic sites?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "MLOCYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MHDH3",
+    "Oridinal": 23,
+    "FieldName": "Location of metastatic sites (before enrollment)",
+    "ControlType": "Label",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC1",
+    "Oridinal": 24,
+    "FieldName": "Liver",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC2",
+    "Oridinal": 25,
+    "FieldName": "Lung",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC3",
+    "Oridinal": 26,
+    "FieldName": "Peritoneum",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC4",
+    "Oridinal": 27,
+    "FieldName": "Lymph node",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC5",
+    "Oridinal": 28,
+    "FieldName": "Brain",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC6",
+    "Oridinal": 29,
+    "FieldName": "Bone",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC7",
+    "Oridinal": 30,
+    "FieldName": "Pancreas",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC8",
+    "Oridinal": 31,
+    "FieldName": "Bile duct",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC9",
+    "Oridinal": 32,
+    "FieldName": "Esophagus",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC10",
+    "Oridinal": 33,
+    "FieldName": "Colorectal",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC11",
+    "Oridinal": 34,
+    "FieldName": "Uterus",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC12",
+    "Oridinal": 35,
+    "FieldName": "Stomach",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC13",
+    "Oridinal": 36,
+    "FieldName": "Kidney",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC14",
+    "Oridinal": 37,
+    "FieldName": "Adrenal gland",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC15",
+    "Oridinal": 38,
+    "FieldName": "Spleen",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC16",
+    "Oridinal": 39,
+    "FieldName": "Breast",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC17",
+    "Oridinal": 40,
+    "FieldName": "Ovary",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  }
+]
+------------------------
+第【2/3】批解析成功，新增字段20个
+====================AI提取的json如下：
+[
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC18",
+    "Oridinal": 41,
+    "FieldName": "Skin",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC19",
+    "Oridinal": 42,
+    "FieldName": "Pleura",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC20",
+    "Oridinal": 43,
+    "FieldName": "Head and neck",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC21",
+    "Oridinal": 44,
+    "FieldName": "Mediastinum",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC22",
+    "Oridinal": 45,
+    "FieldName": "Pericardium",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC23",
+    "Oridinal": 46,
+    "FieldName": "Pleural effusion",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC24",
+    "Oridinal": 47,
+    "FieldName": "Ascites",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC25",
+    "Oridinal": 48,
+    "FieldName": "Pelvic effusion",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC99",
+    "Oridinal": 49,
+    "FieldName": "Others",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOCOTH",
+    "Oridinal": 50,
+    "FieldName": "Other metastatic sites, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  }
+]
+本次聊天消耗的Token数：2402
+其中输入消耗的Token数：1156
+输出消耗的Token数：1246
+=============开始进行json反序列化 ......2026/1/4 14:29:16
+提取到的纯JSON：
+[
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC18",
+    "Oridinal": 41,
+    "FieldName": "Skin",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC19",
+    "Oridinal": 42,
+    "FieldName": "Pleura",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC20",
+    "Oridinal": 43,
+    "FieldName": "Head and neck",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC21",
+    "Oridinal": 44,
+    "FieldName": "Mediastinum",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC22",
+    "Oridinal": 45,
+    "FieldName": "Pericardium",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC23",
+    "Oridinal": 46,
+    "FieldName": "Pleural effusion",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC24",
+    "Oridinal": 47,
+    "FieldName": "Ascites",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC25",
+    "Oridinal": 48,
+    "FieldName": "Pelvic effusion",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOC99",
+    "Oridinal": 49,
+    "FieldName": "Others",
+    "ControlType": "CheckBox",
+    "DataFormat": "1",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "MH_DH",
+    "FieldOID": "MLOCOTH",
+    "Oridinal": 50,
+    "FieldName": "Other metastatic sites, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  }
+]
+------------------------
+第【3/3】批解析成功，新增字段10个
+====================开始逐一解析Medical History (MH)中的字段！！！！2026/1/4 14:29:16
+字段OID：MHYN  字段Name：Does the subject have any medical history or present medical conditions?  所属表单：MH  Ordinal：1, IsGrid：false, 字段详情：[1] Radio Button
+1=Yes 
+2=No
+字段OID：MHTERM  字段Name：Medical History or Condition  所属表单：MH  Ordinal：2, IsGrid：true, 字段详情：[$200] Text
+字段OID：MHSTDAT  字段Name：Start date  所属表单：MH  Ordinal：3, IsGrid：true, 字段详情：DateTime
+dd-mmm-yyyy- (calendar tool)
+字段OID：MHONGO  字段Name：Ongoing?  所属表单：MH  Ordinal：4, IsGrid：true, 字段详情：[1] Radio Button
+1=Yes 
+2=No
+字段OID：MHENDAT  字段Name：End Date  所属表单：MH  Ordinal：5, IsGrid：true, 字段详情：DateTime
+dd-mmm-yyyy- (calendar tool)
+字段OID：MHSEV  字段Name：If it is ongoing, please provide the severity before enrollment  所属表单：MH  Ordinal：6, IsGrid：true, 字段详情：[1] Radio Button
+1=Grade 1
+2=Grade 2
+3=Grade 3
+4=Grade 4
+5=Unknown
+【拆分批次】总数据量：6条，批次大小：20条，总批次：1批
+====================AI提取的json如下：
+[
+  {
+    "FormOID": "MH",
+    "FieldOID": "MHYN",
+    "Oridinal": 1,
+    "FieldName": "Does the subject have any medical history or present medical conditions?",
+    "ControlType": "Radio Button",
+    "DataFormat": "1",
+    "DataDictionaryOID": "MHYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "MH",
+    "FieldOID": "MHTERM",
+    "Oridinal": 2,
+    "FieldName": "Medical History or Condition",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "MH",
+    "FieldOID": "MHSTDAT",
+    "Oridinal": 3,
+    "FieldName": "Start date",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "MH",
+    "FieldOID": "MHONGO",
+    "Oridinal": 4,
+    "FieldName": "Ongoing?",
+    "ControlType": "Radio Button",
+    "DataFormat": "1",
+    "DataDictionaryOID": "MHONGO",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "MH",
+    "FieldOID": "MHENDAT",
+    "Oridinal": 5,
+    "FieldName": "End Date",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "MH",
+    "FieldOID": "MHSEV",
+    "Oridinal": 6,
+    "FieldName": "If it is ongoing, please provide the severity before enrollment",
+    "ControlType": "Radio Button",
+    "DataFormat": "1",
+    "DataDictionaryOID": "MHSEV",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  }
+]
+本次聊天消耗的Token数：2620
+其中输入消耗的Token数：1126
+输出消耗的Token数：1494
+=============开始进行json反序列化 ......2026/1/4 14:30:17
+提取到的纯JSON：
+[
+  {
+    "FormOID": "MH",
+    "FieldOID": "MHYN",
+    "Oridinal": 1,
+    "FieldName": "Does the subject have any medical history or present medical conditions?",
+    "ControlType": "Radio Button",
+    "DataFormat": "1",
+    "DataDictionaryOID": "MHYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "MH",
+    "FieldOID": "MHTERM",
+    "Oridinal": 2,
+    "FieldName": "Medical History or Condition",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "MH",
+    "FieldOID": "MHSTDAT",
+    "Oridinal": 3,
+    "FieldName": "Start date",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "MH",
+    "FieldOID": "MHONGO",
+    "Oridinal": 4,
+    "FieldName": "Ongoing?",
+    "ControlType": "Radio Button",
+    "DataFormat": "1",
+    "DataDictionaryOID": "MHONGO",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "MH",
+    "FieldOID": "MHENDAT",
+    "Oridinal": 5,
+    "FieldName": "End Date",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "MH",
+    "FieldOID": "MHSEV",
+    "Oridinal": 6,
+    "FieldName": "If it is ongoing, please provide the severity before enrollment",
+    "ControlType": "Radio Button",
+    "DataFormat": "1",
+    "DataDictionaryOID": "MHSEV",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  }
+]
+------------------------
+第【1/1】批解析成功，新增字段6个
+====================开始逐一解析Allergic history (AL)中的字段！！！！2026/1/4 14:30:17
+字段OID：ALYN  字段Name：Was any allergic history to drugs, food or other substances reported?  FormOID：AL Ordinal：1, IsGrid：false, 字段详情：[1] Radio Button
+1=Yes 
+2=No
+字段OID：ALLABEL  字段Name：If any allergic history to drugs, food or other substances reported, please record the detailed information in below logline.  FormOID：AL Ordinal：2, IsGrid：false, 字段详情：Label
+字段OID：ALTERM  字段Name：Allergic Drug name  FormOID：AL Ordinal：3, IsGrid：true, 字段详情：[$100] Text
+字段OID：ALGEN  字段Name：Allergen  FormOID：AL Ordinal：4, IsGrid：true, 字段详情：[$100] Text
+【拆分批次】总数据量：4条，批次大小：20条，总批次：1批
+====================AI提取的json如下：
+[
+  {
+    "FormOID": "AL",
+    "FieldOID": "ALYN",
+    "Oridinal": 1,
+    "FieldName": "Was any allergic history to drugs, food or other substances reported?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "ALYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "AL",
+    "FieldOID": "ALLABEL",
+    "Oridinal": 2,
+    "FieldName": "If any allergic history to drugs, food or other substances reported, please record the detailed information in below logline.",
+    "ControlType": "Label",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "AL",
+    "FieldOID": "ALTERM",
+    "Oridinal": 3,
+    "FieldName": "Allergic Drug name",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "AL",
+    "FieldOID": "ALGEN",
+    "Oridinal": 4,
+    "FieldName": "Allergen",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  }
+]
+本次聊天消耗的Token数：2021
+其中输入消耗的Token数：991
+输出消耗的Token数：1030
+=============开始进行json反序列化 ......2026/1/4 14:31:03
+提取到的纯JSON：
+[
+  {
+    "FormOID": "AL",
+    "FieldOID": "ALYN",
+    "Oridinal": 1,
+    "FieldName": "Was any allergic history to drugs, food or other substances reported?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "ALYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "AL",
+    "FieldOID": "ALLABEL",
+    "Oridinal": 2,
+    "FieldName": "If any allergic history to drugs, food or other substances reported, please record the detailed information in below logline.",
+    "ControlType": "Label",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "AL",
+    "FieldOID": "ALTERM",
+    "Oridinal": 3,
+    "FieldName": "Allergic Drug name",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "AL",
+    "FieldOID": "ALGEN",
+    "Oridinal": 4,
+    "FieldName": "Allergen",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  }
+]
+------------------------
+第【1/1】批解析成功，新增字段4个
+====================开始逐一解析Somking and drinking history (SU)中的字段！！！！2026/1/4 14:31:03
+字段OID：CSUNCF  字段Name：Cigarettes consuming condition  所属表单：SU Ordinal：1  字段详情：[1] DropdownList
+1=Never
+2=Quit smoking for more than 3 months before screening
+3=Still somking within 3 months before screening (≤5 cigarettes/day)
+4=Still somking within 3 months before screening (>5 cigarettes/day)
+字段OID：ASUNCF  字段Name：Alcohol consuming condition  所属表单：SU Ordinal：2  字段详情：[1] DropdownList
+1=Never    
+2=Occasionally drink alcohol within 3 months before screening(≤ 14 alcohol units / week)
+3=Regular drink alcohol within 3 months before screening (> 14 alcohol units /week)
+4=Abstained from alcohol for more than 3 months before screening
+【拆分批次】总数据量：2条，批次大小：20条，总批次：1批
+====================AI提取的json如下：
+[
+    {
+        "FormOID": "SU",
+        "FieldOID": "CSUNCF",
+        "Oridinal": 1,
+        "FieldName": "Cigarettes consuming condition",
+        "ControlType": "DropDownList",
+        "DataFormat": "1",
+        "DataDictionaryOID": "CSUNCF",
+        "DefaultValue": "",
+        "QueryFutureDate": false
+    },
+    {
+        "FormOID": "SU",
+        "FieldOID": "ASUNCF",
+        "Oridinal": 2,
+        "FieldName": "Alcohol consuming condition",
+        "ControlType": "DropDownList",
+        "DataFormat": "1",
+        "DataDictionaryOID": "ASUNCF",
+        "DefaultValue": "",
+        "QueryFutureDate": false
+    }
+]
+本次聊天消耗的Token数：1521
+其中输入消耗的Token数：968
+输出消耗的Token数：553
+=============开始进行json反序列化 ......2026/1/4 14:31:32
+提取到的纯JSON：
+[
+    {
+        "FormOID": "SU",
+        "FieldOID": "CSUNCF",
+        "Oridinal": 1,
+        "FieldName": "Cigarettes consuming condition",
+        "ControlType": "DropDownList",
+        "DataFormat": "1",
+        "DataDictionaryOID": "CSUNCF",
+        "DefaultValue": "",
+        "QueryFutureDate": false
+    },
+    {
+        "FormOID": "SU",
+        "FieldOID": "ASUNCF",
+        "Oridinal": 2,
+        "FieldName": "Alcohol consuming condition",
+        "ControlType": "DropDownList",
+        "DataFormat": "1",
+        "DataDictionaryOID": "ASUNCF",
+        "DefaultValue": "",
+        "QueryFutureDate": false
+    }
+]
+------------------------
+第【1/1】批解析成功，新增字段2个
+====================开始逐一解析Tumor Results-Baseline Target lesions (TU_TL)中的字段！！！！2026/1/4 14:31:32
+字段OID：TLYN  字段Name：Does the subject have any target lesions?  所属表单：TU_TL  Ordinal：1, IsGrid：false, 字段详情：[1] RadioButton
+1=Yes  2=No
+字段OID：TLLOC  字段Name：Target Lesion Location  所属表单：TU_TL  Ordinal：2, IsGrid：true, 字段详情：[2] DropdownList
+1=Liver 
+2=Lung 
+3=Peritoneum 
+4=Lymph node 
+5=Brain
+6=Bone 
+7=Pancreas 
+8=Bile duct 
+9=Esophagus 
+10=Colorectal
+11=Uterus 
+12=Stomach 
+13=Kidney 
+14=Adrenal gland 
+15=Spleen 
+16=Breast 
+17=Ovary
+18=Skin 
+19=Pleura 
+20=Head and neck 
+21=Mediastinum 
+22=Pericardium 
+23=Pleural effusion 
+24=Ascites 
+25=Pelvic effusion 
+26= Gastroesophageal junction
+99=Other
+字段OID：TLLOCO  字段Name：Other location, please specify  所属表单：TU_TL  Ordinal：3, IsGrid：true, 字段详情：[$200] LongText
+字段OID：TLLOCDES  字段Name：Target Lesion Location Description  所属表单：TU_TL  Ordinal：4, IsGrid：true, 字段详情：[$200] LongText
+字段OID：TLDAT  字段Name：Date of examination  所属表单：TU_TL  Ordinal：5, IsGrid：true, 字段详情：DateTime
+dd mm yyyy (calendar tool)
+字段OID：TLMETH  字段Name：Assessment Method  所属表单：TU_TL  Ordinal：6, IsGrid：true, 字段详情：[2] DropdownList
+1=Enhanced CT 
+2=Enhanced MRI
+3=Bone scan
+4=Plain CT scan
+5=Plain MRI
+6=Plain scan+enhanced CT
+7=Plain scan+enhanced MRI
+8=PET-CT
+9=Other
+字段OID：TLMETHO  字段Name：Other Assessment Method  所属表单：TU_TL  Ordinal：7, IsGrid：true, 字段详情：[$200] LongText
+字段OID：TLORRES  字段Name：Short axis of pathological lymph nodes / the longest diameter of other lesions  所属表单：TU_TL  Ordinal：8, IsGrid：true, 字段详情：[5.2] Text
+字段OID：TLORRESU  字段Name：Diameter Unit  所属表单：TU_TL  Ordinal：9, IsGrid：true, 字段详情：RadioButton[2], 默认值：1|
+字段OID：TLSUMDIA  字段Name：Sum of Diameters  所属表单：TU_TL  Ordinal：10, IsGrid：false, 字段详情：[7.2] Text
+字段OID：TLSUMDIAU  字段Name：Sum of Diameters Unit  所属表单：TU_TL  Ordinal：11, IsGrid：false, 字段详情：RadioButton[2], 默认值：1|
+【拆分批次】总数据量：11条，批次大小：20条，总批次：1批
+====================AI提取的json如下：
+```json
+[
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLYN",
+    "Oridinal": 1,
+    "FieldName": "Does the subject have any target lesions?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "TLYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLLOC",
+    "Oridinal": 2,
+    "FieldName": "Target Lesion Location",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "TLLOC",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLLOCO",
+    "Oridinal": 3,
+    "FieldName": "Other location, please specify",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLLOCDES",
+    "Oridinal": 4,
+    "FieldName": "Target Lesion Location Description",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLDAT",
+    "Oridinal": 5,
+    "FieldName": "Date of examination",
+    "ControlType": "DateTime",
+    "DataFormat": "dd MMM yyyy",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLMETH",
+    "Oridinal": 6,
+    "FieldName": "Assessment Method",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "TLMETH",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLMETHO",
+    "Oridinal": 7,
+    "FieldName": "Other Assessment Method",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLORRES",
+    "Oridinal": 8,
+    "FieldName": "Short axis of pathological lymph nodes / the longest diameter of other lesions",
+    "ControlType": "Text",
+    "DataFormat": "5.2",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLORRESU",
+    "Oridinal": 9,
+    "FieldName": "Diameter Unit",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "TLORRESU",
+    "DefaultValue": "1|",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLSUMDIA",
+    "Oridinal": 10,
+    "FieldName": "Sum of Diameters",
+    "ControlType": "Text",
+    "DataFormat": "7.2",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLSUMDIAU",
+    "Oridinal": 11,
+    "FieldName": "Sum of Diameters Unit",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "TLSUMDIAU",
+    "DefaultValue": "1|",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  }
+]
+```
+本次聊天消耗的Token数：3700
+其中输入消耗的Token数：1535
+输出消耗的Token数：2165
+=============开始进行json反序列化 ......2026/1/4 14:32:57
+提取到的纯JSON：
+[
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLYN",
+    "Oridinal": 1,
+    "FieldName": "Does the subject have any target lesions?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "TLYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLLOC",
+    "Oridinal": 2,
+    "FieldName": "Target Lesion Location",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "TLLOC",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLLOCO",
+    "Oridinal": 3,
+    "FieldName": "Other location, please specify",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLLOCDES",
+    "Oridinal": 4,
+    "FieldName": "Target Lesion Location Description",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLDAT",
+    "Oridinal": 5,
+    "FieldName": "Date of examination",
+    "ControlType": "DateTime",
+    "DataFormat": "dd MMM yyyy",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLMETH",
+    "Oridinal": 6,
+    "FieldName": "Assessment Method",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "TLMETH",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLMETHO",
+    "Oridinal": 7,
+    "FieldName": "Other Assessment Method",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLORRES",
+    "Oridinal": 8,
+    "FieldName": "Short axis of pathological lymph nodes / the longest diameter of other lesions",
+    "ControlType": "Text",
+    "DataFormat": "5.2",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLORRESU",
+    "Oridinal": 9,
+    "FieldName": "Diameter Unit",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "TLORRESU",
+    "DefaultValue": "1|",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLSUMDIA",
+    "Oridinal": 10,
+    "FieldName": "Sum of Diameters",
+    "ControlType": "Text",
+    "DataFormat": "7.2",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "TU_TL",
+    "FieldOID": "TLSUMDIAU",
+    "Oridinal": 11,
+    "FieldName": "Sum of Diameters Unit",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "TLSUMDIAU",
+    "DefaultValue": "1|",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  }
+]
+------------------------
+第【1/1】批解析成功，新增字段11个
+====================开始逐一解析Tumor Results-Baseline Non-Target lesions (TU_NTL)中的字段！！！！2026/1/4 14:32:57
+字段OID：NTLYN  字段Name：Does the subject have any Non-target lesions?  所属表单：TU_NTL  Ordinal：1, IsGrid：false, 字段详情：[1] RadioButton
+1=Yes  2=No
+字段OID：NTLLOC  字段Name：Non-target Lesion Location  所属表单：TU_NTL  Ordinal：2, IsGrid：true, 字段详情：[2] DropdownList
+1=Liver 
+2=Lung 
+3=Peritoneum 
+4=Lymph node 
+5=Brain
+6=Bone 
+7=Pancreas 
+8=Bile duct 
+9=Esophagus 
+10=Colorectal
+11=Uterus 
+12=Stomach 
+13=Kidney 
+14=Adrenal gland 
+15=Spleen 
+16=Breast 
+17=Ovary
+18=Skin 
+19=Pleura 
+20=Head and neck 
+21=Mediastinum 
+22=Pericardium 
+23=Pleural effusion 
+24=Ascites 
+25=Pelvic effusion 
+26= gastroesophageal junction
+99=Other
+字段OID：NTLLOCO  字段Name：Other  所属表单：TU_NTL  Ordinal：3, IsGrid：true, 字段详情：[$200] LongText
+字段OID：NTLLOCDE  字段Name：Non-target Lesion Location Description  所属表单：TU_NTL  Ordinal：4, IsGrid：true, 字段详情：[$200] LongText
+字段OID：NTLDAT  字段Name：Date of examination  所属表单：TU_NTL  Ordinal：5, IsGrid：true, 字段详情：DateTime
+dd mm yyyy (calendar tool)
+字段OID：NTLMETH  字段Name：Assessment Method  所属表单：TU_NTL  Ordinal：6, IsGrid：true, 字段详情：[2] DropdownList
+1=Enhanced CT 
+2=Enhanced MRI
+3=Bone scan
+4=Plain CT scan,
+5=Plain MRI
+6=Plain scan+enhanced CT
+7=Plain scan+enhanced MRI
+8=PET-CT
+9=Other
+字段OID：NTLMETHO  字段Name：Other method, please specify.  所属表单：TU_NTL  Ordinal：7, IsGrid：true, 字段详情：[$200] LongText
+【拆分批次】总数据量：7条，批次大小：20条，总批次：1批
+====================AI提取的json如下：
+[
+  {
+    "FormOID": "TU_NTL",
+    "FieldOID": "NTLYN",
+    "Oridinal": 1,
+    "FieldName": "Does the subject have any Non-target lesions?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "NTLYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "TU_NTL",
+    "FieldOID": "NTLLOC",
+    "Oridinal": 2,
+    "FieldName": "Non-target Lesion Location",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "NTLLOC",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_NTL",
+    "FieldOID": "NTLLOCO",
+    "Oridinal": 3,
+    "FieldName": "Other",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_NTL",
+    "FieldOID": "NTLLOCDE",
+    "Oridinal": 4,
+    "FieldName": "Non-target Lesion Location Description",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_NTL",
+    "FieldOID": "NTLDAT",
+    "Oridinal": 5,
+    "FieldName": "Date of examination",
+    "ControlType": "DateTime",
+    "DataFormat": "dd MMM yyyy",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_NTL",
+    "FieldOID": "NTLMETH",
+    "Oridinal": 6,
+    "FieldName": "Assessment Method",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "NTLMETH",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_NTL",
+    "FieldOID": "NTLMETHO",
+    "Oridinal": 7,
+    "FieldName": "Other method, please specify.",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  }
+]
+本次聊天消耗的Token数：2722
+其中输入消耗的Token数：1338
+输出消耗的Token数：1384
+=============开始进行json反序列化 ......2026/1/4 14:33:54
+提取到的纯JSON：
+[
+  {
+    "FormOID": "TU_NTL",
+    "FieldOID": "NTLYN",
+    "Oridinal": 1,
+    "FieldName": "Does the subject have any Non-target lesions?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "NTLYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "TU_NTL",
+    "FieldOID": "NTLLOC",
+    "Oridinal": 2,
+    "FieldName": "Non-target Lesion Location",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "NTLLOC",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_NTL",
+    "FieldOID": "NTLLOCO",
+    "Oridinal": 3,
+    "FieldName": "Other",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_NTL",
+    "FieldOID": "NTLLOCDE",
+    "Oridinal": 4,
+    "FieldName": "Non-target Lesion Location Description",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_NTL",
+    "FieldOID": "NTLDAT",
+    "Oridinal": 5,
+    "FieldName": "Date of examination",
+    "ControlType": "DateTime",
+    "DataFormat": "dd MMM yyyy",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_NTL",
+    "FieldOID": "NTLMETH",
+    "Oridinal": 6,
+    "FieldName": "Assessment Method",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "NTLMETH",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "TU_NTL",
+    "FieldOID": "NTLMETHO",
+    "Oridinal": 7,
+    "FieldName": "Other method, please specify.",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  }
+]
+------------------------
+第【1/1】批解析成功，新增字段7个
+====================开始逐一解析Prior Anti-Cancer Therapy-Medication summary (PR_ANMYN)中的字段！！！！2026/1/4 14:33:54
+字段OID：PRANMYN1  字段Name：Please record all previous Anti-Cancer medications before enrollment.  所属表单：PR_ANMYN Ordinal：1  字段详情：Label
+字段OID：ANMYN  字段Name：Did the patient have any Anti-Cancer medications before enrollment?  所属表单：PR_ANMYN Ordinal：2  字段详情：[1] RadioButton
+1=Yes  2=No
+【拆分批次】总数据量：2条，批次大小：20条，总批次：1批
+====================AI提取的json如下：
+[
+  {
+    "FormOID": "PR_ANMYN",
+    "FieldOID": "PRANMYN1",
+    "Oridinal": 1,
+    "FieldName": "Please record all previous Anti-Cancer medications before enrollment.",
+    "ControlType": "Label",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "PR_ANMYN",
+    "FieldOID": "ANMYN",
+    "Oridinal": 2,
+    "FieldName": "Did the patient have any Anti-Cancer medications before enrollment?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "ANMYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  }
+]
+本次聊天消耗的Token数：1691
+其中输入消耗的Token数：886
+输出消耗的Token数：805
+=============开始进行json反序列化 ......2026/1/4 14:34:32
+提取到的纯JSON：
+[
+  {
+    "FormOID": "PR_ANMYN",
+    "FieldOID": "PRANMYN1",
+    "Oridinal": 1,
+    "FieldName": "Please record all previous Anti-Cancer medications before enrollment.",
+    "ControlType": "Label",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  },
+  {
+    "FormOID": "PR_ANMYN",
+    "FieldOID": "ANMYN",
+    "Oridinal": 2,
+    "FieldName": "Did the patient have any Anti-Cancer medications before enrollment?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "ANMYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false
+  }
+]
+------------------------
+第【1/1】批解析成功，新增字段2个
+====================开始逐一解析Prior Anti-Cancer Therapy-medication (PR_ANM)中的字段！！！！2026/1/4 14:34:32
+字段OID：ANMNAME  字段Name：Regimen Name  所属表单：PR_ANM  Ordinal：1, IsGrid：false, 字段详情：[$200] Text
+字段OID：TRTSET1  字段Name：Treatment setting  所属表单：PR_ANM  Ordinal：2, IsGrid：false, 字段详情：[2] RadioButton
+1= Neoadjuvant therapy 
+2= Adjuvant therapy 
+3= First-line therapy 
+4=Second-line therapy
+5=Third-line therapy
+6=Fourth-line therapy
+7=Fifth-line therapy
+8=Sixth-line therapy
+9=Seventh-line therapy
+10=Eighth-line therapy
+11=Ninth-line therapy
+12=Palliative therapy
+99=Other
+字段OID：TRTSETO1  字段Name：Others, please specify  所属表单：PR_ANM  Ordinal：3, IsGrid：false, 字段详情：[$200] Text
+字段OID：BESTRESP1  字段Name：Best Overall Response  所属表单：PR_ANM  Ordinal：4, IsGrid：false, 字段详情：[2] RadioButton
+1=Complete Response (CR)
+2=Partial Response (PR)
+3=Stable disease(SD)
+4=Progressive disease (PD)
+5=Not evaluable, NE
+6=Unknown
+字段OID：ANMREA  字段Name：Reason for Discontinuation  所属表单：PR_ANM  Ordinal：5, IsGrid：false, 字段详情：[2] RadioButton
+1=Treatment Completed,
+2=Relapsed/PD
+3=Toxicity
+6=Unknown 
+99=Other
+字段OID：ANMREAOT  字段Name：Other reasons, please specify.  所属表单：PR_ANM  Ordinal：6, IsGrid：false, 字段详情：[$200] Text
+字段OID：PDDAT  字段Name：Date of disease progression /relapse  所属表单：PR_ANM  Ordinal：7, IsGrid：false, 字段详情：DateTime
+dd-mmm-yyyy-(calendar tool)
+字段OID：ANMTRT  字段Name：Drug name  所属表单：PR_ANM  Ordinal：8, IsGrid：true, 字段详情：[$100] Text
+字段OID：ANMCYC  字段Name：Treatment cycles  所属表单：PR_ANM  Ordinal：9, IsGrid：true, 字段详情：[$10] Text
+字段OID：ANMSTDAT  字段Name：Start date  所属表单：PR_ANM  Ordinal：10, IsGrid：true, 字段详情：DateTime
+dd-mmm-yyyy- (calendar tool)
+字段OID：ANMENDAT  字段Name：End date  所属表单：PR_ANM  Ordinal：11, IsGrid：true, 字段详情：DateTime
+dd-mmm-yyyy- (calendar tool)
+字段OID：ANMDSTXT  字段Name：Dosage  所属表单：PR_ANM  Ordinal：12, IsGrid：true, 字段详情：[$100] Text
+字段OID：ANMDOSU  字段Name：Dose Unit  所属表单：PR_ANM  Ordinal：13, IsGrid：true, 字段详情：[2] DropdownList
+1=g 
+2=mg 
+3=ug 
+4= mL
+5=IU 
+6=tablet
+7=capsule
+8=spray
+9=drop
+10=unknown 
+99=other
+字段OID：ANMDOSUO  字段Name：Other dose unit, please specify  所属表单：PR_ANM  Ordinal：14, IsGrid：true, 字段详情：[$100] Text
+字段OID：ANMFRQ  字段Name：Frequency  所属表单：PR_ANM  Ordinal：15, IsGrid：true, 字段详情：[2] DropdownList
+1=QD
+2=BID
+3=TID
+4=QW, once a week
+5=Q2W, every two weeks
+6=Q3W, every three weeks
+7=QM, once a month
+8=Once
+9=Unknown
+99=Other
+字段OID：ANMFRQO  字段Name：Other frequency, please specify  所属表单：PR_ANM  Ordinal：16, IsGrid：true, 字段详情：[$100] Text
+字段OID：ANMROUTE  字段Name：Route  所属表单：PR_ANM  Ordinal：17, IsGrid：true, 字段详情：[2] DropdownList
+1=oral 
+2=intravenous drip 
+3=intravenous bolus 
+4=intra-articular injection 
+5=intraperitoneal perfusion 
+6=intrathoracic perfusion 
+7=unknown 
+99=other
+字段OID：ANMROUTO  字段Name：Other route, please specify  所属表单：PR_ANM  Ordinal：18, IsGrid：true, 字段详情：[$100] Text
+【拆分批次】总数据量：18条，批次大小：20条，总批次：1批
+====================AI提取的json如下：
+```json
+[
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMNAME",
+    "Oridinal": 1,
+    "FieldName": "Regimen Name",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "TRTSET1",
+    "Oridinal": 2,
+    "FieldName": "Treatment setting",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "TRTSET1",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "TRTSETO1",
+    "Oridinal": 3,
+    "FieldName": "Others, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "BESTRESP1",
+    "Oridinal": 4,
+    "FieldName": "Best Overall Response",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "BESTRESP1",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMREA",
+    "Oridinal": 5,
+    "FieldName": "Reason for Discontinuation",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "ANMREA",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMREAOT",
+    "Oridinal": 6,
+    "FieldName": "Other reasons, please specify.",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "PDDAT",
+    "Oridinal": 7,
+    "FieldName": "Date of disease progression /relapse",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMTRT",
+    "Oridinal": 8,
+    "FieldName": "Drug name",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMCYC",
+    "Oridinal": 9,
+    "FieldName": "Treatment cycles",
+    "ControlType": "Text",
+    "DataFormat": "$10",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMSTDAT",
+    "Oridinal": 10,
+    "FieldName": "Start date",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMENDAT",
+    "Oridinal": 11,
+    "FieldName": "End date",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMDSTXT",
+    "Oridinal": 12,
+    "FieldName": "Dosage",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMDOSU",
+    "Oridinal": 13,
+    "FieldName": "Dose Unit",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "ANMDOSU",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMDOSUO",
+    "Oridinal": 14,
+    "FieldName": "Other dose unit, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMFRQ",
+    "Oridinal": 15,
+    "FieldName": "Frequency",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "ANMFRQ",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMFRQO",
+    "Oridinal": 16,
+    "FieldName": "Other frequency, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMROUTE",
+    "Oridinal": 17,
+    "FieldName": "Route",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "ANMROUTE",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMROUTO",
+    "Oridinal": 18,
+    "FieldName": "Other route, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  }
+]
+```
+本次聊天消耗的Token数：4407
+其中输入消耗的Token数：1930
+输出消耗的Token数：2477
+=============开始进行json反序列化 ......2026/1/4 14:36:08
+提取到的纯JSON：
+[
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMNAME",
+    "Oridinal": 1,
+    "FieldName": "Regimen Name",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "TRTSET1",
+    "Oridinal": 2,
+    "FieldName": "Treatment setting",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "TRTSET1",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "TRTSETO1",
+    "Oridinal": 3,
+    "FieldName": "Others, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "BESTRESP1",
+    "Oridinal": 4,
+    "FieldName": "Best Overall Response",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "BESTRESP1",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMREA",
+    "Oridinal": 5,
+    "FieldName": "Reason for Discontinuation",
+    "ControlType": "RadioButton",
+    "DataFormat": "2",
+    "DataDictionaryOID": "ANMREA",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMREAOT",
+    "Oridinal": 6,
+    "FieldName": "Other reasons, please specify.",
+    "ControlType": "Text",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "PDDAT",
+    "Oridinal": 7,
+    "FieldName": "Date of disease progression /relapse",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMTRT",
+    "Oridinal": 8,
+    "FieldName": "Drug name",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMCYC",
+    "Oridinal": 9,
+    "FieldName": "Treatment cycles",
+    "ControlType": "Text",
+    "DataFormat": "$10",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMSTDAT",
+    "Oridinal": 10,
+    "FieldName": "Start date",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMENDAT",
+    "Oridinal": 11,
+    "FieldName": "End date",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMDSTXT",
+    "Oridinal": 12,
+    "FieldName": "Dosage",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMDOSU",
+    "Oridinal": 13,
+    "FieldName": "Dose Unit",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "ANMDOSU",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMDOSUO",
+    "Oridinal": 14,
+    "FieldName": "Other dose unit, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMFRQ",
+    "Oridinal": 15,
+    "FieldName": "Frequency",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "ANMFRQ",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMFRQO",
+    "Oridinal": 16,
+    "FieldName": "Other frequency, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMROUTE",
+    "Oridinal": 17,
+    "FieldName": "Route",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "ANMROUTE",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_ANM",
+    "FieldOID": "ANMROUTO",
+    "Oridinal": 18,
+    "FieldName": "Other route, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  }
+]
+------------------------
+第【1/1】批解析成功，新增字段18个
+====================开始逐一解析Prior Anti-Cancer Radiation Therapy (PR_RAD)中的字段！！！！2026/1/4 14:36:08
+字段OID：PRRAD  字段Name：Please record all Anti-Cancer radiation therapies before enrollment.  所属表单：PR_RAD  Ordinal：1, IsGrid：false, 字段详情：Label
+字段OID：RADYN  字段Name：Did the patient undergo any Anti-Cancer radiation therapy before enrollment?  所属表单：PR_RAD  Ordinal：2, IsGrid：false, 字段详情：[1] RadioButton
+1=Yes  2=No
+字段OID：RADLOCAT  字段Name：Radiotherapy Location  所属表单：PR_RAD  Ordinal：3, IsGrid：true, 字段详情：[2] DropdownList
+1=Lung
+2=Bone
+3=Liver
+4=Brain
+5=Lymph nodes
+6=Pericardium
+7=Thoracic cavity
+8=Abdominal cavity
+9=Esophagus
+10=Cervix
+11=Oral cavity
+12=Larynx
+13=Breast
+14=Prostate Gland
+15=Colon
+16=Rectum
+99=Other
+字段OID：RADLOCOT  字段Name：Other Radiotherapy Location, please specify  所属表单：PR_RAD  Ordinal：4, IsGrid：true, 字段详情：[$100] Text
+字段OID：RADLOCSP  字段Name：Please specify the Radiotherapy Location  所属表单：PR_RAD  Ordinal：5, IsGrid：true, 字段详情：[$100] Text
+字段OID：RADOSTOT  字段Name：Total Cumulative Dose  所属表单：PR_RAD  Ordinal：6, IsGrid：true, 字段详情：Text [$20]
+字段OID：RADOSU  字段Name：Dose Unit  所属表单：PR_RAD  Ordinal：7, IsGrid：true, 字段详情：DropDownList [2]
+1=Rads 
+2=Grays 
+3=Centigrays 
+99=Other
+字段OID：RADOSUO  字段Name：Other unit, please specify  所属表单：PR_RAD  Ordinal：8, IsGrid：true, 字段详情：Long Text [$200]
+字段OID：RADINDC  字段Name：Treatment Setting  所属表单：PR_RAD  Ordinal：9, IsGrid：true, 字段详情：[2] DropdownList
+1=Radical radiotherapy
+2=Adjuvant radiotherapy
+3=Palliative radiotherapy
+4=Prophylactic radiotherapy
+99=Other
+字段OID：RADCATOT  字段Name：Other treatment setting, please specify  所属表单：PR_RAD  Ordinal：10, IsGrid：true, 字段详情：[$100] Text
+字段OID：RADSTDAT  字段Name：Start date  所属表单：PR_RAD  Ordinal：11, IsGrid：true, 字段详情：DateTime
+dd-mmm-yyyy- (calendar tool)
+字段OID：RADENDAT  字段Name：End date  所属表单：PR_RAD  Ordinal：12, IsGrid：true, 字段详情：DateTime
+dd-mmm-yyyy- (calendar tool)
+字段OID：PDYN  字段Name：Did the subject disease progression or relapse during the treatment?  所属表单：PR_RAD  Ordinal：13, IsGrid：true, 字段详情：[1] RadioButton
+1=Yes
+2=No
+3=Unknown
+字段OID：PDDAT  字段Name：Date of disease progression/relapse  所属表单：PR_RAD  Ordinal：14, IsGrid：true, 字段详情：DateTime
+dd-mmm-yyyy- (calendar tool)
+【拆分批次】总数据量：14条，批次大小：20条，总批次：1批
+====================AI提取的json如下：
+```json
+[
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "PRRAD",
+    "Oridinal": 1,
+    "FieldName": "Please record all Anti-Cancer radiation therapies before enrollment.",
+    "ControlType": "Label",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADYN",
+    "Oridinal": 2,
+    "FieldName": "Did the patient undergo any Anti-Cancer radiation therapy before enrollment?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "RADYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADLOCAT",
+    "Oridinal": 3,
+    "FieldName": "Radiotherapy Location",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "RADLOCAT",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADLOCOT",
+    "Oridinal": 4,
+    "FieldName": "Other Radiotherapy Location, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADLOCSP",
+    "Oridinal": 5,
+    "FieldName": "Please specify the Radiotherapy Location",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADOSTOT",
+    "Oridinal": 6,
+    "FieldName": "Total Cumulative Dose",
+    "ControlType": "Text",
+    "DataFormat": "$20",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADOSU",
+    "Oridinal": 7,
+    "FieldName": "Dose Unit",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "RADOSU",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADOSUO",
+    "Oridinal": 8,
+    "FieldName": "Other unit, please specify",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADINDC",
+    "Oridinal": 9,
+    "FieldName": "Treatment Setting",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "RADINDC",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADCATOT",
+    "Oridinal": 10,
+    "FieldName": "Other treatment setting, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADSTDAT",
+    "Oridinal": 11,
+    "FieldName": "Start date",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADENDAT",
+    "Oridinal": 12,
+    "FieldName": "End date",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "PDYN",
+    "Oridinal": 13,
+    "FieldName": "Did the subject disease progression or relapse during the treatment?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "PDYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "PDDAT",
+    "Oridinal": 14,
+    "FieldName": "Date of disease progression/relapse",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  }
+]
+```
+本次聊天消耗的Token数：3689
+其中输入消耗的Token数：1613
+输出消耗的Token数：2076
+=============开始进行json反序列化 ......2026/1/4 14:37:29
+提取到的纯JSON：
+[
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "PRRAD",
+    "Oridinal": 1,
+    "FieldName": "Please record all Anti-Cancer radiation therapies before enrollment.",
+    "ControlType": "Label",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADYN",
+    "Oridinal": 2,
+    "FieldName": "Did the patient undergo any Anti-Cancer radiation therapy before enrollment?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "RADYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": false
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADLOCAT",
+    "Oridinal": 3,
+    "FieldName": "Radiotherapy Location",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "RADLOCAT",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADLOCOT",
+    "Oridinal": 4,
+    "FieldName": "Other Radiotherapy Location, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADLOCSP",
+    "Oridinal": 5,
+    "FieldName": "Please specify the Radiotherapy Location",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADOSTOT",
+    "Oridinal": 6,
+    "FieldName": "Total Cumulative Dose",
+    "ControlType": "Text",
+    "DataFormat": "$20",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADOSU",
+    "Oridinal": 7,
+    "FieldName": "Dose Unit",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "RADOSU",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADOSUO",
+    "Oridinal": 8,
+    "FieldName": "Other unit, please specify",
+    "ControlType": "LongText",
+    "DataFormat": "$200",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADINDC",
+    "Oridinal": 9,
+    "FieldName": "Treatment Setting",
+    "ControlType": "DropDownList",
+    "DataFormat": "2",
+    "DataDictionaryOID": "RADINDC",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADCATOT",
+    "Oridinal": 10,
+    "FieldName": "Other treatment setting, please specify",
+    "ControlType": "Text",
+    "DataFormat": "$100",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADSTDAT",
+    "Oridinal": 11,
+    "FieldName": "Start date",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "RADENDAT",
+    "Oridinal": 12,
+    "FieldName": "End date",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "PDYN",
+    "Oridinal": 13,
+    "FieldName": "Did the subject disease progression or relapse during the treatment?",
+    "ControlType": "RadioButton",
+    "DataFormat": "1",
+    "DataDictionaryOID": "PDYN",
+    "DefaultValue": "",
+    "QueryFutureDate": false,
+    "IsGrid": true
+  },
+  {
+    "FormOID": "PR_RAD",
+    "FieldOID": "PDDAT",
+    "Oridinal": 14,
+    "FieldName": "Date of disease progression/relapse",
+    "ControlType": "DateTime",
+    "DataFormat": "dd- MMM- yyyy-",
+    "DataDictionaryOID": "",
+    "DefaultValue": "",
+    "QueryFutureDate": true,
+    "IsGrid": true
+  }
+]
+------------------------
+第【1/1】批解析成功，新增字段14个
+====================开始逐一解析Prior Anti-Cancer Surgery and Procedure (PR_ANT)中的字段！！！！2026/1/4 14:37:29
+字段OID：PRANT  字段Name：Please record all previous Anti-Cancer surgeries/procedures (except Radiation) before enrollment.  所属表单：PR_ANT  Ordinal：1, IsGrid：false, 字段详情：Label
+字段OID：ANTYN  字段Name：Did the patient undergo any Anti-Cancer surgery or procedure (except Radiation) before enrollment?  所属表单：PR_ANT  Ordinal：2, IsGrid：false, 字段详情：[1] RadioButton
+1=Yes  2=No
+字段OID：ANTPRTRT  字段Name：Procedure/Surgery name  所属表单：PR_ANT  Ordinal：3, IsGrid：true, 字段详情：[$100] Text
+字段OID：ANTLOC  字段Name：Treatment Location  所属表单：PR_ANT  Ordinal：4, IsGrid：true, 字段详情：[$100] Text
+字段OID：ANTCAT  字段Name：Type of the procedure or surgery  所属表单：PR_ANT  Ordinal：5, IsGrid：true, 字段详情：[2] DropdownList
+1=Diagnostic procedures
+2=Ablation Procedure 
+3=Palliative surgery 
+4=Radical surgery
+99=Other
+字段OID：ANTCATO  字段Name：Other type, please specify  所属表单：PR_ANT  Ordinal：6, IsGrid：true, 字段详情：[$100] Text
+字段OID：ANTSTDAT  字段Name：Start Date  所属表单：PR_ANT  Ordinal：7, IsGrid：true, 字段详情：DateTime
+dd-mmm-yyyy- (calendar tool)
+字段OID：ANTENDAT  字段Name：End Date  所属表单：PR_ANT  Ordinal：8, IsGrid：true, 字段详情：DateTime
+dd-mmm-yyyy- (calendar tool)
+字段OID：PDYN  字段Name：Did the subject disease progression or relapse during the treatment?  所属表单：PR_ANT  Ordinal：9, IsGrid：true, 字段详情：[1] RadioButton
+1=Yes
+2=No
+3=Unknown
+字段OID：PDDAT  字段Name：Date of disease progression/relapse  所属表单：PR_ANT  Ordinal：10, IsGrid：true, 字段详情：DateTime
+dd-mmm-yyyy- (calendar tool)
+【拆分批次】总数据量：10条，批次大小：20条，总批次：1批

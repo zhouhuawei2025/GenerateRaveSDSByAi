@@ -1,0 +1,5 @@
+﻿{
+  "Url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "Model": "qwen3-max",
+  "ApiKey": "your-api-key"
+}

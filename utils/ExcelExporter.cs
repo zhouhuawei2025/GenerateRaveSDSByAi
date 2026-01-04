@@ -227,7 +227,7 @@ namespace GenerateRaveSDSByAi.utils
 
 
                 //导出DataDictionaryOID相互冲突的Field
-                var sheet3 = package.Workbook.Worksheets.Add("FieldsWithWrongDataFormat");
+                var sheet3 = package.Workbook.Worksheets.Add("FieldsWithWrongDataDictionaryOID");
                 // 设置表头
                 string[] sheet3Headers = new string[]
                 {
