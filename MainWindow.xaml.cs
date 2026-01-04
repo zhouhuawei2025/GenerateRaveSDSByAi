@@ -364,7 +364,7 @@ namespace GenerateRaveSDSByAi
             //3. 数据导出
             if (!isAiProcessFailed)
             {
-                ExcelExporter.ExportFieldToExcel(this.fieldList, @"运行日志\Field.xlsx");
+                ExcelExporter.ExportFieldToExcel(this.fieldList, @"运行日志\Field.xlsx");                
                 await Task.Delay(5000);
                 tbLog.Inlines.Clear();
                 Hyperlink link = new Hyperlink(new Run("成功导出Field.xlsx"))

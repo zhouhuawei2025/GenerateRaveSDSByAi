@@ -193,6 +193,72 @@ namespace GenerateRaveSDSByAi.utils
                 }
                 sheet1.Cells.AutoFitColumns(); // 自动调整列宽
 
+                //导出DataFormat相互冲突的Field
+                var sheet2 = package.Workbook.Worksheets.Add("FieldsWithWrongDataFormat");
+                // 设置表头
+                string[] sheet2Headers = new string[]
+                {
+                    "FormOID", "FieldOID", "Ordinal", "VariableOID", "DataFormat"
+                };
+
+                for (int col = 0; col < sheet2Headers.Length; col++)
+                {
+                    sheet2.Cells[1, col + 1].Value = sheet1Headers[col];
+                    sheet2.Cells[1, col + 1].Style.Font.Bold = true; // 表头加粗
+                }
+
+                // 填充数据
+                int sheet2Row = 2;
+                List<Field> wrongFields1 = fieldList.SelectMany(i => i)
+                            .GroupBy(f => f.VariableOID)
+                            .Where(g => g.Select(f => f.DataFormat).Distinct().Count() > 1)
+                            .SelectMany(g => g)
+                            .ToList();
+                foreach (var field in fields)
+                {
+                    sheet2.Cells[sheet1Row, 1].Value = field.FormOID;
+                    sheet2.Cells[sheet1Row, 2].Value = field.FieldOID;
+                    sheet2.Cells[sheet1Row, 3].Value = field.Oridinal;
+                    sheet2.Cells[sheet1Row, 4].Value = field.VariableOID;
+                    sheet2.Cells[sheet1Row, 5].Value = field.DataFormat;
+                    sheet2Row++;
+                }
+                sheet2.Cells.AutoFitColumns(); // 自动调整列宽
+
+
+                //导出DataDictionaryOID相互冲突的Field
+                var sheet3 = package.Workbook.Worksheets.Add("FieldsWithWrongDataFormat");
+                // 设置表头
+                string[] sheet3Headers = new string[]
+                {
+                    "FormOID", "FieldOID", "Ordinal", "VariableOID", "DataDictionaryOID"
+                };
+
+                for (int col = 0; col < sheet3Headers.Length; col++)
+                {
+                    sheet3.Cells[1, col + 1].Value = sheet1Headers[col];
+                    sheet3.Cells[1, col + 1].Style.Font.Bold = true; // 表头加粗
+                }
+
+                // 填充数据
+                int sheet3Row = 2;
+                List<Field> wrongFields2 = fieldList.SelectMany(i => i)
+                            .GroupBy(f => f.VariableOID)
+                            .Where(g => g.Select(f => f.DataDictionaryOID).Distinct().Count() > 1)
+                            .SelectMany(g => g)
+                            .ToList();
+                foreach (var field in fields)
+                {
+                    sheet3.Cells[sheet1Row, 1].Value = field.FormOID;
+                    sheet3.Cells[sheet1Row, 2].Value = field.FieldOID;
+                    sheet3.Cells[sheet1Row, 3].Value = field.Oridinal;
+                    sheet3.Cells[sheet1Row, 4].Value = field.VariableOID;
+                    sheet3.Cells[sheet1Row, 5].Value = field.DataDictionaryOID;
+                    sheet3Row++;
+                }
+                sheet3.Cells.AutoFitColumns(); // 自动调整列宽
+
+
                 // 保存Excel文件
                 FileInfo file = new FileInfo(outputPath);
                 package.SaveAs(file);

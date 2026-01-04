@@ -13,7 +13,6 @@ namespace GenerateRaveSDSByAi.dataModel
         public string? FieldOID { get; set; }
         public int Oridinal { get; set; }
         public string? DraftFieldName { get; set; }
-
         public bool DraftFieldActive { get; set; } = true;
         public string? VariableOID { get; set; }
         public string? DataFormat { get; set; }
@@ -39,6 +38,7 @@ namespace GenerateRaveSDSByAi.dataModel
         {
             this.DraftFieldName = this.FieldName;
             UpdateVariableOID();
+            UpdateDataFormat();
             this.DataDictionaryOID = (this.ControlType.Contains("Radio")  || this.ControlType.Contains("Drop")) ? this.FieldOID : "";
             UpdateCodeDic();
             UpdateQueryNonConformance();
@@ -61,6 +61,37 @@ namespace GenerateRaveSDSByAi.dataModel
             else
             {
                 this.VariableOID = this.FieldOID;
+            }
+        }
+
+        public void UpdateDataFormat()
+        {
+            switch(this.ControlType)
+            {
+                case "RadioButton":
+                case "RadioButton (Vertical)":
+                case "DropDownList":
+                    this.DataFormat = "2";
+                    break;
+                case "CheckBox":
+                    this.DataFormat = "1";
+                    break;
+                case "Dynamic SearchList":
+                    this.DataFormat = "$100";
+                    break;
+                case "DateTime":
+                    if (this.DataFormat.Replace("-", "") == "dd MMM yyyy"
+                        || this.DataFormat.Replace("-", "") == "HH:nn"
+                        || this.DataFormat.Replace("-", "") == "HH:nn:ss"
+                        || this.DataFormat.Replace("-", "") == "dd MMM yyyy HH:nn:ss")
+                        this.DataFormat = this.DataFormat;
+                    else
+                        this.DataFormat = "dd MMM yyyy";
+                    break;
+                case "LongText":
+                    if (!this.DataFormat.Contains('$')) this.DataFormat = "$200";
+                    break;
+
             }
         }
 
@@ -149,5 +180,7 @@ namespace GenerateRaveSDSByAi.dataModel
                     break;
             }
         }
+
+
     }
 }
