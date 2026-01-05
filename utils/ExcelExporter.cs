@@ -155,7 +155,7 @@ namespace GenerateRaveSDSByAi.utils
                     sheet1.Cells[sheet1Row, 2].Value = field.FieldOID;
                     sheet1.Cells[sheet1Row, 3].Value = field.Oridinal;
                     
-                    sheet1.Cells[sheet1Row, 5].Value = field.DraftFieldName;
+                    sheet1.Cells[sheet1Row, 5].Value = field.FieldOID;
                     sheet1.Cells[sheet1Row, 6].Value = field.DraftFieldActive ? "TRUE":"FALSE";
                     sheet1.Cells[sheet1Row, 7].Value = field.VariableOID;
                     sheet1.Cells[sheet1Row, 8].Value = field.DataFormat;
@@ -227,7 +227,7 @@ namespace GenerateRaveSDSByAi.utils
 
 
                 //导出DataDictionaryOID相互冲突的Field
-                var sheet3 = package.Workbook.Worksheets.Add("FieldsWithWrongDataDictionaryOID");
+                var sheet3 = package.Workbook.Worksheets.Add("FieldsWithWrongDicOID");
                 // 设置表头
                 string[] sheet3Headers = new string[]
                 {

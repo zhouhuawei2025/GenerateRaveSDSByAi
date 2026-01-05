@@ -44,7 +44,7 @@ internal class CRFAnalyzeUtils
                     else if (dpLayout.ToLower().Contains("default"))
                     {
                         string defaultValue = TextExtractor.GetCellValueLayOutPart(table, i, cell - 1);
-                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1] 1={defaultValue}");
+                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1]\n Code List\n 1={defaultValue}");
                         File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
                     }
                 }
@@ -87,7 +87,7 @@ internal class CRFAnalyzeUtils
                         else if (dpLayout.ToLower().Contains("default"))
                         {
                             string defaultValue = TextExtractor.GetCellValueLayOutPart(table, i, cell - 1);
-                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1] 1={defaultValue}");
+                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1]\n Code List\n 1={defaultValue}");
                             File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
                         }
                     }
@@ -133,7 +133,7 @@ internal class CRFAnalyzeUtils
                     else if (dpLayout.ToLower().Contains("default") && !dpLayout.ToLower().Contains("dropdown"))
                     {
                         string defaultValue = TextExtractor.GetCellValueLayOutPart(table, i, cell - 1);
-                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1] 1={defaultValue}");
+                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1]\n Code List\n 1={defaultValue}");
                         File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
                     }
                 }
@@ -178,7 +178,7 @@ internal class CRFAnalyzeUtils
                         else if (dpLayout.ToLower().Contains("default"))
                         {
                             string defaultValue = TextExtractor.GetCellValueLayOutPart(table, i, cell - 1);
-                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1] 1={defaultValue}");
+                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1]\n Code List\n 1={defaultValue}");
                             File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
                         }
                     }
@@ -293,7 +293,7 @@ internal class CRFAnalyzeUtils
                         else if (dpLayout.ToLower().Contains("default"))
                         {
                             string defaultValue = TextExtractor.GetCellValueLayOutPart(table, i, cell - 1);
-                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1] 1={defaultValue}");
+                            layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1]\n Code List\n 1={defaultValue}");
                             File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
                         }
                     }
@@ -320,7 +320,7 @@ internal class CRFAnalyzeUtils
                     else if(dpLayout.ToLower().Contains("default"))
                     {
                         string defaultValue = TextExtractor.GetCellValueLayOutPart(table, i, cell - 1);
-                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1] 1={defaultValue}");
+                        layoutList.Add($"字段OID：{dpOID}，字段类型和格式：RadioButton[1]\n Code List\n 1={defaultValue}");
                         File.AppendAllText(@"运行日志\codelistLog.txt", $"成功解析字段OID：{dpOID}，字段类型和格式：{dpLayout}" + "\r\n");
                     }
                 }
@@ -347,7 +347,7 @@ internal class CRFAnalyzeUtils
                 string dpLayout = string.Join("\n", table.Rows[i].Cells[cell].Paragraphs.Select(e => e.Text));
                 if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
                 {
-                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} Ordinal：{ordinal}  字段详情：RadioButton[2], 默认值：1|");
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID} Ordinal：{ordinal}  字段详情：RadioButton[2], 默认值：1");
                 }
                 else
                 {
@@ -393,7 +393,7 @@ internal class CRFAnalyzeUtils
 
                 if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
                 {
-                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID}  Ordinal：{ordinal}, {IsGrid}, 字段详情：RadioButton[2], 默认值：1|");
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  所属表单：{formOID}  Ordinal：{ordinal}, {IsGrid}, 字段详情：RadioButton[2], 默认值：1");
                 }
                 else
                 {
@@ -436,7 +436,7 @@ internal class CRFAnalyzeUtils
                     string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
                     if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
                     {
-                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal}, {IsGrid}, 字段详情：RadioButton[2], 默认值：1|");
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal}, {IsGrid}, 字段详情：RadioButton[2], 默认值：1");
                     }
 
                     else
@@ -458,7 +458,7 @@ internal class CRFAnalyzeUtils
                         ordinal++;
                         if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
                         {
-                            fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal}, {IsGrid}, 字段详情：RadioButton[2], 默认值：1|");
+                            fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal}, {IsGrid}, 字段详情：RadioButton[2], 默认值：1");
                         }
 
                         else
@@ -506,7 +506,7 @@ internal class CRFAnalyzeUtils
                 }
                 else if(dpLayout.ToLower().Contains("default") && !dpLayout.ToLower().Contains("dropdown"))
                 {
-                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} Ordinal：{ordinal},  {IsGrid}, 字段详情：RadioButton[2], 默认值：1|");
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID} Ordinal：{ordinal},  {IsGrid}, 字段详情：RadioButton[2], 默认值：1");
                 }
                 else
                 {
@@ -575,7 +575,7 @@ internal class CRFAnalyzeUtils
                     string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
                     if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
                     {
-                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}   Ordinal：{ordinal},  {IsGrid}, 字段详情：RadioButton[2], 默认值：1|");
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}   Ordinal：{ordinal},  {IsGrid}, 字段详情：RadioButton[2], 默认值：1");
                     }
 
                     else
@@ -641,7 +641,7 @@ internal class CRFAnalyzeUtils
                     string dpLayout = TextExtractor.GetCellValueLayOutPart(table, i, cell);
                     if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
                     {
-                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal} IsLab：false, 字段详情：RadioButton[2], 默认值：1|");
+                        fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal} IsLab：false, 字段详情：RadioButton[2], 默认值：1");
                     }
 
                     else
@@ -695,7 +695,7 @@ internal class CRFAnalyzeUtils
                 else if (dpLayout.IndexOf("default", StringComparison.OrdinalIgnoreCase) >= 0)
                 {
                     string value = TextExtractor.GetCellValue(table, i, 1);
-                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal} IsLab：false, 字段详情：RadioButton[2], 默认值：1|");
+                    fieldList.Add($"字段OID：{dpOID}  字段Name：{dpName}  FormOID：{formOID}  Ordinal：{ordinal} IsLab：false, 字段详情：RadioButton[2], 默认值：1");
                 }
 
                 else
@@ -715,7 +715,16 @@ internal class CRFAnalyzeUtils
 
     public static async Task<string> UsingAiTransferListToJson(string instructions, List<string> list, AIconfig aiconfig, string path)
     {
+        //// 创建客户端选项并设置5分钟超时
+        //OpenAIClientOptions openAIClientOptions = new OpenAIClientOptions
+        //{
+        //    // 设置网络超时为5分钟（300,000毫秒）
+        //    NetworkTimeout = TimeSpan.FromMinutes(5)
+        //};
+        //openAIClientOptions.Endpoint = new Uri(aiconfig.Url);
+
         OpenAIClientOptions openAIClientOptions = new OpenAIClientOptions();
+        openAIClientOptions.NetworkTimeout = TimeSpan.FromMinutes(5);   //加入延时机制，以响应公司的AI
         openAIClientOptions.Endpoint = new Uri(aiconfig.Url);
         IChatClient client = new OpenAI.Chat.ChatClient(aiconfig.Model, new ApiKeyCredential(aiconfig.ApiKey), openAIClientOptions)
                     .AsIChatClient();

@@ -6,7 +6,6 @@ public int Oridinal { get; set; }
 public string FieldName { get; set; }
 public string ControlType { get; set; }
 public string DataFormat { get; set; }
-public string DataDictionaryOID { get; set; }
 public string DefaultValue { get; set; } = "";
 public bool QueryFutureDate { get; set; }=false;
 public bool IsLab { get; set; } = false; 
@@ -27,7 +26,6 @@ DataFormat：取决于字段信息中的格式（格式中的+代表长度固定
 	时间的格式只可以为：DataFormat =HH:nn,  HH:nn:ss,  HH-:nn-, 或 HH-:nn-:ss-，请根据字段的格式信息进行选择
 	日期时间的只可以为：DataFormat =dd MMM yyyy HH:nn:ss
 	如果是没有注明格式，那么DataFormat = $100。
-DataDictionaryOID：只有ControlType = RadioButton、RadioButton (Vertical)、DropDownList的字段的DataDictionaryOID属性不为空，且等于字段信息中的字段OID；其他ControlType的字段的DataDictionaryOID是空字符串。
 DefaultValue: 默认为空字符串，如果字段详情中明确说明字段有默认值，那么就进行赋值（例1：默认值：1|，此时DefaultValue = "1|"， 例2：默认值：1|2|3|，此时DefaultValue = "1|2|3|" ）。
 QueryFutureDate: 默认为false，如果是日期、时间、日期时间，那么QueryFutureDate = true。
 IsLab: 默认为false，取自字段信息中的IsLab。

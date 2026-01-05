@@ -1,0 +1,315 @@
+==========正在检查表单：【Subject Information (SI)】......
+==========完成检查
+
+
+==========正在检查表单：【Subject Visits (SV1)】......
+==========完成检查
+
+
+==========正在检查表单：【Subject Visits (SV2)】......
+==========完成检查
+
+
+==========正在检查表单：【Informed Consent (ICF)】......
+==========完成检查
+
+
+==========正在检查表单：【Demographics (DM)】......
+==========完成检查
+
+
+==========正在检查表单：【Disease history and condition (MH_DH)】......
+错误：【If yes, please select the specific gene (multiple - choice). (MHDH1)】疑似缺少 LABEL，请及时更正
+错误：【Current tumor stage(MHDH2)】疑似缺少 LABEL，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Medical History (MH)】......
+==========完成检查
+
+
+==========正在检查表单：【Allergic history (AL)】......
+错误：【If any allergic history to drugs, food or other substances reported, please record the detailed information in below logline. (ALLABEL)】疑似缺少 LABEL，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Prior Anti-Cancer Therapy-Medication summary (PR_ANMYN)】......
+错误：【】不符合【文本(OID)】的格式，请及时更正
+错误：【Prior Anti-Cancer Therapy-medication (PR_ANM)】疑似缺少 LABEL，请及时更正
+错误：【[Add row]】不符合【文本(OID)】的格式，请及时更正
+错误：【[Add page]】不符合【文本(OID)】的格式，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Prior Anti-Cancer Radiation Therapy (PR_RAD)】......
+==========完成检查
+
+
+==========正在检查表单：【Prior Anti-Cancer Surgery and Procedure (PR_ANT)】......
+==========完成检查
+
+
+==========正在检查表单：【Subsequent Anti-Cancer Therapy-Medication summary (CM_ANMYN)】......
+==========完成检查
+
+
+==========正在检查表单：【Subsequent Anti-Cancer Therapy-Medication (CM_ANM)】......
+==========完成检查
+
+
+==========正在检查表单：【Subsequent Anti-Cancer Radiation Therapy (CM_RAD)】......
+==========完成检查
+
+
+==========正在检查表单：【Subsequent Anti-Cancer Surgery and Procedure (CM_ANT)】......
+==========完成检查
+
+
+==========正在检查表单：【Vital Signs (VS1)】......
+错误：【Related adverse event ( TEMPAE)】不符合【文本(OID)】的格式，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Vital Signs(multiple timepoint) (VS2)】......
+错误：【Related adverse event ( TEMPAE)】不符合【文本(OID)】的格式，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Height and Weight (VS_HTWT)】......
+==========完成检查
+
+
+==========正在检查表单：【ECOG Performance Status (ECOG)】......
+==========完成检查
+
+
+==========正在检查表单：【Physical Examination (PE)】......
+错误：缺少【编号(SPID)】行，请及时更正
+错误：用于确定固定行每行的defalutVaule不存在，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【12-Lead Electrocardiogram (single timepoint)(EG1)】......
+==========完成检查
+
+
+==========正在检查表单：【Triplicate 12-Lead Electrocardiogram (EG2)】......
+错误：【】不符合【文本(OID)】的格式，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【12-Lead Electrocardiogram (Multiple timpoint)(EG3)】......
+==========完成检查
+
+
+==========正在检查表单：【Echocardiogram/Multigated Acquisition (ECMU)】......
+错误：【Exam Method (ECMETHOD)】疑似缺少Code list，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Hematology (LB_HEM)】......
+==========完成检查
+
+
+==========正在检查表单：【Chemistry (LB_CHEM)】......
+==========完成检查
+
+
+==========正在检查表单：【Coagulation Function (LB_COAG)】......
+==========完成检查
+
+
+==========正在检查表单：【Urinalysis (LB_URIN)】......
+==========完成检查
+
+
+==========正在检查表单：【24-hour urinary protein quantity (LB_UPRO)】......
+==========完成检查
+
+
+==========正在检查表单：【Pregnancy Test (HCG)】......
+==========完成检查
+
+
+==========正在检查表单：【Serum Virology (SERO)】......
+==========完成检查
+
+
+==========正在检查表单：【HBV-DNA test (HBV)】......
+==========完成检查
+
+
+==========正在检查表单：【HCV-RNA test (HCV)】......
+==========完成检查
+
+
+==========正在检查表单：【Ophthalmologic Examinations (OE)】......
+==========完成检查
+
+
+==========正在检查表单：【SIM0610 administration (EX)】......
+错误：【Adverse Event 1 (ECADJAE 1)】不符合【文本(OID)】的格式，请及时更正
+错误：【Adverse Event 2 (ECADJAE 2)】不符合【文本(OID)】的格式，请及时更正
+错误：【Adverse Event 3 (ECADJAE 3)】不符合【文本(OID)】的格式，请及时更正
+错误：【Adverse Event 4 (ECADJAE 4)】不符合【文本(OID)】的格式，请及时更正
+错误：【Adverse Event 5 (ECADJAE 5)】不符合【文本(OID)】的格式，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Tumor sample collection (TSC)】......
+==========完成检查
+
+
+==========正在检查表单：【Inclusion/Exclusion Criteria (IE)】......
+==========完成检查
+
+
+==========正在检查表单：【Enrollment (ENROLL)】......
+==========完成检查
+
+
+==========正在检查表单：【DLT Evaluation (DLT)】......
+==========完成检查
+
+
+==========正在检查表单：【ctDNA Sample Collection (CTD)】......
+==========完成检查
+
+
+==========正在检查表单：【ctDNA Sample Collection (Unscheduled) (CTD100)】......
+==========完成检查
+
+
+==========正在检查表单：【PD marker Sample Collection (PD)】......
+==========完成检查
+
+
+==========正在检查表单：【PD marker Sample Collection (Unscheduled) (PD100)】......
+==========完成检查
+
+
+==========正在检查表单：【Pharmacokinetics sample collection_Q3W_Dose Escalation Part (PC1)】......
+错误：缺少【编号(SPID)】行，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Pharmacokinetics sample collection_Q3W_Cohort expansion part (PC2)】......
+错误：缺少【编号(SPID)】行，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Pharmacokinetics sample collection_D1+D8_Dose Escalation Part (PC3)】......
+错误：缺少【编号(SPID)】行，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Pharmacokinetics sample collection_D1+D8_Cohort expansion part (PC4)】......
+错误：缺少【编号(SPID)】行，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Pharmacokinetics sample collection_Q2W_Dose Escalation Part (PC5)】......
+错误：缺少【编号(SPID)】行，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Pharmacokinetics sample collection_Q2W_Cohort expansion part (PC6)】......
+错误：缺少【编号(SPID)】行，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Pharmacokinetics sample collection (Unscheduled) (PC100)】......
+==========完成检查
+
+
+==========正在检查表单：【ADA sample collection (ADA1)】......
+错误：【Planned Timepoint (ADA TPT)】不符合【文本(OID)】的格式，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【ADA sample collection (Unscheduled) (ADA100)】......
+==========完成检查
+
+
+==========正在检查表单：【Tumor Response Assessment Week (RS_WEEK)】......
+==========完成检查
+
+
+==========正在检查表单：【Baseline Target Lesions Measurement (TUTL)】......
+错误：【Target Lesion Location (TLLOC)】疑似缺少Code list，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Baseline Non-Target Lesions Measurement (TUNTL)】......
+错误：【Non-target Lesion Location (NTLLOC)】疑似缺少Code list，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Target Lesion Results (TR_TL)】......
+错误：【Target Lesion Location(TLLOC)】疑似缺少Code list，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Non-target Lesion Results (TR_NTL)】......
+错误：【Non-Target Lesion Location(NTLLOC)】疑似缺少Code list，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【New Lesion Results (TR_NL)】......
+错误：【New Lesion Location(NLLOC)】疑似缺少Code list，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Tumor Response Assessment(RS)】......
+==========完成检查
+
+
+==========正在检查表单：【Visit Continuation (CONT)】......
+==========完成检查
+
+
+==========正在检查表单：【Unscheduled Assessment(UA)】......
+==========完成检查
+
+
+==========正在检查表单：【Other Lab Tests (LB1)】......
+==========完成检查
+
+
+==========正在检查表单：【Adverse Events Summary (AEYN)】......
+==========完成检查
+
+
+==========正在检查表单：【Adverse Events】......
+表头【Adverse Events】 的格式有错误，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Prior and Concomitant Medications(Non- tumor related) (CM)】......
+错误：【Dose Unit (CMDOSU)】疑似缺少Code list，请及时更正
+错误：【Dosage form(DOSEFORM)】疑似缺少Code list，请及时更正
+错误：【Frequency (CMDOSFRQ)】疑似缺少Code list，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Prior and Concomitant Procedures (Non-tumor related) (PR)】......
+==========完成检查
+
+
+==========正在检查表单：【End of Treatment (DS_EOT)】......
+错误：【If the primary reason is any AE, please record(DSDELL)】疑似缺少 LABEL，请及时更正
+==========完成检查
+
+
+==========正在检查表单：【Death Report (DD)】......
+==========完成检查
+
+
+==========正在检查表单：【Survival Follow-up (SS)】......
+==========完成检查
+
+
+==========正在检查表单：【End of Study (DS_EOS)】......
+==========完成检查
+
+

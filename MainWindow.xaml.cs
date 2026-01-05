@@ -223,7 +223,8 @@ namespace GenerateRaveSDSByAi
 
 
             //2. AI解析和反序列化
-            int round = (layoutList.Count + 15 - 1) / 15;
+            int batchsize = aiconfig.batchSize;
+            int round = (layoutList.Count + batchsize - 1) / batchsize;
             bool isAiProcessFailed = false;
             for (int i = 0; i < round; i++)
             {
@@ -233,7 +234,7 @@ namespace GenerateRaveSDSByAi
                     break; 
                 }
 
-                var curlist = layoutList.Skip(i * 10).Take(10).ToList<string>();
+                var curlist = layoutList.Skip(i * batchsize).Take(batchsize).ToList<string>();
                 tbLog.Text = $"codelist一共被分为{round}批，AI正在处理第 {i + 1} 批 --- {curlist.Count} 条数据";
                 await Task.Delay(2000);
                 try
@@ -280,7 +281,7 @@ namespace GenerateRaveSDSByAi
             string path = @"运行日志\fieldlistLog.txt";
             File.WriteAllText(path, "====================" + DateTime.Now.ToString() + "\r\n");
             // ★ 新增：定义每批次拆分的大小，可根据AI接口性能调整（建议20-50，按需修改）
-            int batchSize = 20;
+            int batchSize = aiconfig.batchSize;
 
             foreach (var table in tables)
             {

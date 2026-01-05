@@ -1,66 +1,67 @@
-================解析时间：2026/1/4 11:15:06
+================解析时间：2026/1/5 11:51:38
 成功提取表单：Subject Information
 成功提取表单：Subject Visits
 成功提取表单：Subject Visits
-成功提取表单：Informed consent
+成功提取表单：Informed Consent
 成功提取表单：Demographics
 成功提取表单：Disease history and condition
 成功提取表单：Medical History
 成功提取表单：Allergic history
-成功提取表单：Somking and drinking history
-成功提取表单：Tumor Results-Baseline Target lesions
-成功提取表单：Tumor Results-Baseline Non-Target lesions
 成功提取表单：Prior Anti-Cancer Therapy-Medication summary
 成功提取表单：Prior Anti-Cancer Therapy-medication
 成功提取表单：Prior Anti-Cancer Radiation Therapy
 成功提取表单：Prior Anti-Cancer Surgery and Procedure
-成功提取表单：Vital Signs (Single timepoint)
-成功提取表单：Vital Signs (Multiple Timepoints)
+成功提取表单：Subsequent Anti-Cancer Therapy-Medication summary
+成功提取表单：Subsequent Anti-Cancer Therapy-Medication
+成功提取表单：Subsequent Anti-Cancer Radiation Therapy
+成功提取表单：Subsequent Anti-Cancer Surgery and Procedure
+成功提取表单：Vital Signs
+成功提取表单：Vital Signs(multiple timepoint)
 成功提取表单：Height and Weight
-成功提取表单：Physical Examination
 成功提取表单：ECOG Performance Status
+成功提取表单：Physical Examination
 成功提取表单：12-Lead Electrocardiogram (single timepoint)
 成功提取表单：Triplicate 12-Lead Electrocardiogram
 成功提取表单：12-Lead Electrocardiogram (Multiple timpoint)
 成功提取表单：Echocardiogram/Multigated Acquisition
-成功提取表单：Myocardial Enzymes
 成功提取表单：Hematology
 成功提取表单：Chemistry
 成功提取表单：Coagulation Function
 成功提取表单：Urinalysis
-成功提取表单：24- Hour Urinary Protein Quantity
+成功提取表单：24-hour urinary protein quantity
 成功提取表单：Pregnancy Test
-成功提取表单：Thyroid Function
 成功提取表单：Serum Virology
 成功提取表单：HBV-DNA test
 成功提取表单：HCV-RNA test
-成功提取表单：Tumor Tissue Collection
+成功提取表单：Ophthalmologic Examinations
+成功提取表单：SIM0610 administration
+成功提取表单：Tumor sample collection
 成功提取表单：Inclusion/Exclusion Criteria
 成功提取表单：Enrollment
-成功提取表单：SIM0609 administration
 成功提取表单：DLT Evaluation
-成功提取表单：Biomarker Sample Collection
-成功提取表单：Biomarker Sample Collection (Unscheduled)
+成功提取表单：ctDNA Sample Collection
+成功提取表单：ctDNA Sample Collection (Unscheduled)
 成功提取表单：PD marker Sample Collection
 成功提取表单：PD marker Sample Collection (Unscheduled)
-成功提取表单：Pharmacokinetics sample collection (Single Timepoint)
-成功提取表单：Pharmacokinetics sample collection (Multiple Timepoints)
-成功提取表单：Pharmacokinetics sample collection (Multiple Timepoints for Part 2)
-成功提取表单：Pharmacokinetics Sample Collection (Unscheduled)
-成功提取表单：ADA sample collection (Single Timepoint)
+成功提取表单：Pharmacokinetics sample collection_Q3W_Dose Escalation Part
+成功提取表单：Pharmacokinetics sample collection_Q3W_Cohort expansion part
+成功提取表单：Pharmacokinetics sample collection_D1+D8_Dose Escalation Part
+成功提取表单：Pharmacokinetics sample collection_D1+D8_Cohort expansion part
+成功提取表单：Pharmacokinetics sample collection_Q2W_Dose Escalation Part
+成功提取表单：Pharmacokinetics sample collection_Q2W_Cohort expansion part
+成功提取表单：Pharmacokinetics sample collection (Unscheduled)
+成功提取表单：ADA sample collection
 成功提取表单：ADA sample collection (Unscheduled)
-成功提取表单：Oncology Response Assessment Week
+成功提取表单：Tumor Response Assessment Week
+成功提取表单：Baseline Target Lesions Measurement
+成功提取表单：Baseline Non-Target Lesions Measurement
 成功提取表单：Target Lesion Results
 成功提取表单：Non-target Lesion Results
 成功提取表单：New Lesion Results
-成功提取表单：Oncology Response Assessment (RECIST1.1)
+成功提取表单：Tumor Response Assessment
 成功提取表单：Visit Continuation
 成功提取表单：Unscheduled Assessment
 成功提取表单：Other Lab Tests
-成功提取表单：Post Anti-Cancer Therapy-Medication summary
-成功提取表单：Post Anti-Cancer Therapy-Medication
-成功提取表单：Post Anti-Cancer Radiation Therapy
-成功提取表单：Post Anti-Cancer Surgery and Procedure
 成功提取表单：Adverse Events Summary
 成功提取表单：Adverse Events
 成功提取表单：Prior and Concomitant Medications(Non- tumor related)

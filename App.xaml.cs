@@ -26,6 +26,7 @@ public partial class App : Application
         try
         {
             string? keyFromEnv = Environment.GetEnvironmentVariable("OPENAIAPIKEY");
+            //string? keyFromEnv = Environment.GetEnvironmentVariable("QWENAPIKEY");
             // 读取配置（JSON覆盖默认值，无JSON用默认值）
             GlobalAIConfig = ConfigHelper.LoadAIConfig();
 
