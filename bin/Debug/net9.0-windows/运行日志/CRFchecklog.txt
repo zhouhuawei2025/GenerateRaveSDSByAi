@@ -1,12 +1,12 @@
-==========正在检查表单：【Subject Information (SI)】......
+==========正在检查表单：【Participant Information (SI)】......
 ==========完成检查
 
 
-==========正在检查表单：【Subject Visits (SV1)】......
+==========正在检查表单：【Visit information (SV1)】......
 ==========完成检查
 
 
-==========正在检查表单：【Subject Visits (SV2)】......
+==========正在检查表单：【Visit information (SV2)】......
 ==========完成检查
 
 
@@ -18,55 +18,11 @@
 ==========完成检查
 
 
-==========正在检查表单：【Disease history and condition (MH_DH)】......
-==========完成检查
-
-
 ==========正在检查表单：【Medical History (MH)】......
 ==========完成检查
 
 
-==========正在检查表单：【Allergic history (AL)】......
-==========完成检查
-
-
-==========正在检查表单：【Prior Anti-Cancer Therapy-Medication summary (PR_ANMYN)】......
-==========完成检查
-
-
-==========正在检查表单：【Prior Anti-Cancer Therapy-medication (PR_ANM)】......
-==========完成检查
-
-
-==========正在检查表单：【Prior Anti-Cancer Radiation Therapy (PR_RAD)】......
-==========完成检查
-
-
-==========正在检查表单：【Prior Anti-Cancer Surgery and Procedure (PR_ANT)】......
-==========完成检查
-
-
-==========正在检查表单：【Subsequent Anti-Cancer Therapy-Medication summary (CM_ANMYN)】......
-==========完成检查
-
-
-==========正在检查表单：【Subsequent Anti-Cancer Therapy-Medication (CM_ANM)】......
-==========完成检查
-
-
-==========正在检查表单：【Subsequent Anti-Cancer Radiation Therapy (CM_RAD)】......
-==========完成检查
-
-
-==========正在检查表单：【Subsequent Anti-Cancer Surgery and Procedure (CM_ANT)】......
-==========完成检查
-
-
-==========正在检查表单：【Vital Signs (VS1)】......
-==========完成检查
-
-
-==========正在检查表单：【Vital Signs(multiple timepoint) (VS2)】......
+==========正在检查表单：【Smoking and Drinking History (SU)】......
 ==========完成检查
 
 
@@ -74,15 +30,39 @@
 ==========完成检查
 
 
-==========正在检查表单：【ECOG Performance Status (ECOG)】......
+==========正在检查表单：【Drug screening (urine) (UDAB)】......
 ==========完成检查
 
 
-==========正在检查表单：【Physical Examination (PE)】......
+==========正在检查表单：【Drug screening (Blood) (BDAB)】......
 ==========完成检查
 
 
-==========正在检查表单：【12-Lead Electrocardiogram (single timepoint)(EG1)】......
+==========正在检查表单：【Alcohol test (Breath) (AR)】......
+==========完成检查
+
+
+==========正在检查表单：【Infectious serology (VIRO)】......
+==========完成检查
+
+
+==========正在检查表单：【HBV-DNA test (HBV)】......
+==========完成检查
+
+
+==========正在检查表单：【Tuberculosis test (TB)】......
+==========完成检查
+
+
+==========正在检查表单：【Vital Signs(single timepoint) (VS1)】......
+==========完成检查
+
+
+==========正在检查表单：【Vital Signs(Multiple timepoints) (VS2)】......
+==========完成检查
+
+
+==========正在检查表单：【12-Lead Electrocardiogram (Single timepoint) (EG1)】......
 ==========完成检查
 
 
@@ -90,15 +70,15 @@
 ==========完成检查
 
 
-==========正在检查表单：【12-Lead Electrocardiogram (Multiple timpoint)(EG3)】......
+==========正在检查表单：【12-Lead Electrocardiogram (Multiple timpoints) (EG3)】......
 ==========完成检查
 
 
-==========正在检查表单：【Echocardiogram/Multigated Acquisition (ECMU)】......
+==========正在检查表单：【Physical Examination (PE)】......
 ==========完成检查
 
 
-==========正在检查表单：【Hematology (LB_HEM)】......
+==========正在检查表单：【Haematology (LB_HEM)】......
 ==========完成检查
 
 
@@ -110,39 +90,27 @@
 ==========完成检查
 
 
+==========正在检查表单：【Thyroid Hormones (LB_THY)】......
+==========完成检查
+
+
 ==========正在检查表单：【Urinalysis (LB_URIN)】......
 ==========完成检查
 
 
-==========正在检查表单：【24-hour urinary protein quantity (LB_UPRO)】......
+==========正在检查表单：【Pregnancy test (HCG)】......
 ==========完成检查
 
 
-==========正在检查表单：【Pregnancy Test (HCG)】......
+==========正在检查表单：【Reproductive Hormones (LB_REP)】......
 ==========完成检查
 
 
-==========正在检查表单：【Serum Virology (SERO)】......
+==========正在检查表单：【Hypersensitivity Panel (LB_HYP)】......
 ==========完成检查
 
 
-==========正在检查表单：【HBV-DNA test (HBV)】......
-==========完成检查
-
-
-==========正在检查表单：【HCV-RNA test (HCV)】......
-==========完成检查
-
-
-==========正在检查表单：【Ophthalmologic Examinations (OE)】......
-==========完成检查
-
-
-==========正在检查表单：【SIM0610 administration (EX)】......
-==========完成检查
-
-
-==========正在检查表单：【Tumor sample collection (TSC)】......
+==========正在检查表单：【CRS Cytokine Panel (LB_CRS)】......
 ==========完成检查
 
 
@@ -154,87 +122,35 @@
 ==========完成检查
 
 
-==========正在检查表单：【DLT Evaluation (DLT)】......
+==========正在检查表单：【SIM0709 Administration (EX)】......
 ==========完成检查
 
 
-==========正在检查表单：【ctDNA Sample Collection (CTD)】......
+==========正在检查表单：【Local Tolerability Evaluation(Single timepoint) (INJ1)】......
 ==========完成检查
 
 
-==========正在检查表单：【ctDNA Sample Collection (Unscheduled) (CTD100)】......
+==========正在检查表单：【Local Tolerability Evaluation(Multiple timepoints) (INJ2)】......
 ==========完成检查
 
 
-==========正在检查表单：【PD marker Sample Collection (PD)】......
+==========正在检查表单：【Pharmacokinetics sample collection(Single timepoint) (PC1)】......
 ==========完成检查
 
 
-==========正在检查表单：【PD marker Sample Collection (Unscheduled) (PD100)】......
+==========正在检查表单：【Pharmacokinetics sample collection(Multiple timepoints) (PC2)】......
 ==========完成检查
 
 
-==========正在检查表单：【Pharmacokinetics sample collection_Q3W_Dose Escalation Part (PC1)】......
+==========正在检查表单：【PD marker Sample Collection(Single timepoint) (PD1)】......
 ==========完成检查
 
 
-==========正在检查表单：【Pharmacokinetics sample collection_Q3W_Cohort expansion part (PC2)】......
+==========正在检查表单：【PD marker Sample Collection(Multiple timepoints) (PD2)】......
 ==========完成检查
 
 
-==========正在检查表单：【Pharmacokinetics sample collection_D1+D8_Dose Escalation Part (PC3)】......
-==========完成检查
-
-
-==========正在检查表单：【Pharmacokinetics sample collection_D1+D8_Cohort expansion part (PC4)】......
-==========完成检查
-
-
-==========正在检查表单：【Pharmacokinetics sample collection_Q2W_Dose Escalation Part (PC5)】......
-==========完成检查
-
-
-==========正在检查表单：【Pharmacokinetics sample collection_Q2W_Cohort expansion part (PC6)】......
-==========完成检查
-
-
-==========正在检查表单：【Pharmacokinetics sample collection (Unscheduled) (PC100)】......
-==========完成检查
-
-
-==========正在检查表单：【ADA sample collection (ADA1)】......
-==========完成检查
-
-
-==========正在检查表单：【ADA sample collection (Unscheduled) (ADA100)】......
-==========完成检查
-
-
-==========正在检查表单：【Tumor Response Assessment Week (RS_WEEK)】......
-==========完成检查
-
-
-==========正在检查表单：【Baseline Target Lesions Measurement (TUTL)】......
-==========完成检查
-
-
-==========正在检查表单：【Baseline Non-Target Lesions Measurement (TUNTL)】......
-==========完成检查
-
-
-==========正在检查表单：【Target Lesion Results (TR_TL)】......
-==========完成检查
-
-
-==========正在检查表单：【Non-target Lesion Results (TR_NTL)】......
-==========完成检查
-
-
-==========正在检查表单：【New Lesion Results (TR_NL)】......
-==========完成检查
-
-
-==========正在检查表单：【Tumor Response Assessment(RS)】......
+==========正在检查表单：【ADA sample collection (ADA)】......
 ==========完成检查
 
 
@@ -242,7 +158,7 @@
 ==========完成检查
 
 
-==========正在检查表单：【Unscheduled Assessment(UA)】......
+==========正在检查表单：【Unscheduled Assessment (UA)】......
 ==========完成检查
 
 
@@ -254,15 +170,15 @@
 ==========完成检查
 
 
-==========正在检查表单：【Adverse Events(AE)】......
+==========正在检查表单：【Adverse Events (AE)】......
 ==========完成检查
 
 
-==========正在检查表单：【Prior and Concomitant Medications(Non- tumor related) (CM)】......
+==========正在检查表单：【Prior and Concomitant Medications (CM)】......
 ==========完成检查
 
 
-==========正在检查表单：【Prior and Concomitant Procedures (Non-tumor related) (PR)】......
+==========正在检查表单：【Prior and Concomitant Procedures (PR)】......
 ==========完成检查
 
 
@@ -271,10 +187,6 @@
 
 
 ==========正在检查表单：【Death Report (DD)】......
-==========完成检查
-
-
-==========正在检查表单：【Survival Follow-up (SS)】......
 ==========完成检查
 
 

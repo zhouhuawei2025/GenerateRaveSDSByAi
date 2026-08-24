@@ -37,17 +37,25 @@ namespace GenerateRaveSDSByAi.dataModel
         public void UpdateField()
         {
             this.DraftFieldName = this.FieldName;
+            UpdateType();
             UpdateVariableOID();
             UpdateDataFormat();
             this.DataDictionaryOID = (this.ControlType.Contains("Radio")  || this.ControlType.Contains("Drop")) ? this.FieldOID : "";
-            UpdateCodeDic();
+            //UpdateCodeDic();
             UpdateQueryNonConformance();
             this.SASLabel = this.FieldName;
             UpdateSASFormat();
             UpdateIsRequired();
             UpdateLabel();
+            
+
         }
 
+        public void UpdateType()
+        {
+            if (this.ControlType == "Long Text" || this.ControlType == "Long text")
+                this.ControlType = "LongText";
+        }
         public void UpdateVariableOID()
         {
             if (this.ControlType == "Dynamic SearchList" && this.FieldOID.Contains("AE"))
